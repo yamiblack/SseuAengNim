@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="72dp"
         android:text="자동로그인"
+        android:fontFamily="@font/nanumsquareregular"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -45,7 +46,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:fontFamily="@font/nanumsquareregular"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -64,7 +66,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:fontFamily="@font/nanumsquareregular"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
@@ -85,7 +88,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="로그인" />
+            android:text="로그인"
+            android:fontFamily="@font/nanumsquareregular"/>
 
         <Space
             android:layout_width="wrap_content"
@@ -97,7 +101,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="회원가입" />
+            android:text="회원가입"
+            android:fontFamily="@font/nanumsquareregular"/>
 
     </LinearLayout>
 
