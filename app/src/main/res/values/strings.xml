@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">SseuAengNim</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="app_name">쓰앵님</string>
+
+    <string name="title_planner">플래너</string>
+    <string name="title_timer">타이머</string>
+    <string name="title_community">커뮤니티</string>
+    <string name="title_my_page">마이페이지</string>
 </resources>

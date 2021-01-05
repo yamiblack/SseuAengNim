@@ -3,23 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigationPlanner">
 
     <fragment
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigationPlanner"
         android:name="com.jaktongdan.android.sseuaengnim.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:label="@string/title_planner"
+        tools:layout="@layout/fragment_planner" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigationTimer"
         android:name="com.jaktongdan.android.sseuaengnim.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:label="@string/title_timer"
+        tools:layout="@layout/fragment_timer" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigationCommunity"
         android:name="com.jaktongdan.android.sseuaengnim.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:label="@string/title_community"
+        tools:layout="@layout/fragment_community" />
+
+    <fragment
+        android:id="@+id/navigationMyPage"
+        android:name="com.jaktongdan.android.sseuaengnim.ui.notifications.NotificationsFragment"
+        android:label="@string/title_my_page"
+        tools:layout="@layout/fragment_community" />
 </navigation>
