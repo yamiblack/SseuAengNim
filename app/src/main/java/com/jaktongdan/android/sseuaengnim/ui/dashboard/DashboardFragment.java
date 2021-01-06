@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.jaktongdan.android.sseuaengnim.LoginActivity;
 import com.jaktongdan.android.sseuaengnim.R;
 
 public class DashboardFragment extends Fragment {
@@ -30,6 +31,7 @@ public class DashboardFragment extends Fragment {
                 textView.setText(s);
             }
         });
+
         return root;
     }
 }
