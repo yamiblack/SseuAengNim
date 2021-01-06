@@ -3,17 +3,17 @@ package com.jaktongdan.android.sseuaengnim
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import com.jaktongdan.android.sseuaengnim.databinding.ActivityJoinBinding
+import com.jaktongdan.android.sseuaengnim.databinding.ActivityPostListBinding
 
-class JoinActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityJoinBinding
+class PostListActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityPostListBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityJoinBinding.inflate(layoutInflater)
+        binding = ActivityPostListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar?.title = "회원가입"
+        //TODO: supportActionBar?.title
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 

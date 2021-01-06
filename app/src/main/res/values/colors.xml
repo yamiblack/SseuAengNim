@@ -5,6 +5,8 @@
     <color name="subColor">#965D62</color>
     <color name="bottomNavColor">#986339</color>
     <color name="descriptionColor">#534E52</color>
+    <color name="disabledColor">#808080</color>
 
-    <color name="backgroundColor">#DEDEDE</color>
+    <color name="backgroundColor">#F1F1F1</color>
+    <color name="loadingBackgroundColor">#55000000</color>
 </resources>

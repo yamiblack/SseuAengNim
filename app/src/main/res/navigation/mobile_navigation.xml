@@ -7,25 +7,25 @@
 
     <fragment
         android:id="@+id/navigationPlanner"
-        android:name="com.jaktongdan.android.sseuaengnim.ui.home.HomeFragment"
+        android:name="com.jaktongdan.android.sseuaengnim.ui.planner.PlannerFragment"
         android:label="@string/title_planner"
         tools:layout="@layout/fragment_planner" />
 
     <fragment
         android:id="@+id/navigationTimer"
-        android:name="com.jaktongdan.android.sseuaengnim.ui.dashboard.DashboardFragment"
+        android:name="com.jaktongdan.android.sseuaengnim.ui.timer.TimerFragment"
         android:label="@string/title_timer"
         tools:layout="@layout/fragment_timer" />
 
     <fragment
         android:id="@+id/navigationCommunity"
-        android:name="com.jaktongdan.android.sseuaengnim.ui.notifications.NotificationsFragment"
+        android:name="com.jaktongdan.android.sseuaengnim.ui.community.CommunityFragment"
         android:label="@string/title_community"
         tools:layout="@layout/fragment_community" />
 
     <fragment
         android:id="@+id/navigationMyPage"
-        android:name="com.jaktongdan.android.sseuaengnim.ui.notifications.NotificationsFragment"
+        android:name="com.jaktongdan.android.sseuaengnim.ui.myPage.MyPageFragment"
         android:label="@string/title_my_page"
-        tools:layout="@layout/fragment_community" />
+        tools:layout="@layout/fragment_my_page" />
 </navigation>

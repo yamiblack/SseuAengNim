@@ -4,14 +4,159 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context=".JoinActivity">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonRegistration"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_logo" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/logoRegistration"
+                android:layout_width="90dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_logo" />
+
+            <TextView
+                android:id="@+id/labelRegistrationEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="20dp"
+                android:text="이메일"
+                android:textColor="@color/subColor"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/logoRegistration" />
+
+            <EditText
+                android:id="@+id/editTextRegistrationEmail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="34dp"
+                android:layout_marginEnd="34dp"
+                android:ems="10"
+                android:hint="양식에 맞게 입력해주세요"
+                android:inputType="textEmailAddress"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/labelRegistrationEmail" />
+
+            <TextView
+                android:id="@+id/labelRegistrationEmailInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="37dp"
+                android:text="로그인, 비밀번호 찾기 등에 사용됩니다."
+                android:textColor="@color/descriptionColor"
+                android:textSize="10sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextRegistrationEmail" />
+
+            <TextView
+                android:id="@+id/labelRegistrationPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="비밀번호"
+                android:textColor="@color/subColor"
+                app:layout_constraintStart_toStartOf="@+id/labelRegistrationEmail"
+                app:layout_constraintTop_toBottomOf="@+id/labelRegistrationEmailInfo" />
+
+            <EditText
+                android:id="@+id/editTextRegistrationPassword"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="영문/숫자/기호를 모두 포함한 8자리 이상 입력"
+                android:inputType="textPassword"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/editTextRegistrationEmail"
+                app:layout_constraintStart_toStartOf="@+id/editTextRegistrationEmail"
+                app:layout_constraintTop_toBottomOf="@+id/labelRegistrationPassword" />
+
+            <TextView
+                android:id="@+id/labelRegistrationPasswordInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="특수문자는 (! @ # $ % ^ &amp; ? _ ~) 만 가능합니다."
+                android:textColor="@color/descriptionColor"
+                android:textSize="10sp"
+                app:layout_constraintStart_toStartOf="@+id/labelRegistrationEmailInfo"
+                app:layout_constraintTop_toBottomOf="@+id/editTextRegistrationPassword" />
+
+            <TextView
+                android:id="@+id/labelRegistrationPasswordConfirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="비밀번호 확인"
+                android:textColor="@color/subColor"
+                app:layout_constraintStart_toStartOf="@+id/labelRegistrationPassword"
+                app:layout_constraintTop_toBottomOf="@+id/labelRegistrationPasswordInfo" />
+
+            <EditText
+                android:id="@+id/editTextRegistrationPasswordConfirm"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="입력하신 비밀번호를 다시 한번 입력 해주세요."
+                android:inputType="textPassword"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/editTextRegistrationPassword"
+                app:layout_constraintStart_toStartOf="@+id/editTextRegistrationPassword"
+                app:layout_constraintTop_toBottomOf="@+id/labelRegistrationPasswordConfirm" />
+
+            <TextView
+                android:id="@+id/labelRegistrationName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="닉네임"
+                android:textColor="@color/subColor"
+                app:layout_constraintStart_toStartOf="@+id/labelRegistrationPasswordConfirm"
+                app:layout_constraintTop_toBottomOf="@id/editTextRegistrationPasswordConfirm" />
+
+            <EditText
+                android:id="@+id/editTextRegistrationName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="10자 이내 한글 혹은 영어로 입력해주세요."
+                android:inputType="textPersonName"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/editTextRegistrationPasswordConfirm"
+                app:layout_constraintStart_toStartOf="@+id/editTextRegistrationPasswordConfirm"
+                app:layout_constraintTop_toBottomOf="@+id/labelRegistrationName" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/buttonRegistration"
+        style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:text="가입하기"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <include
+        android:id="@+id/loadingLayout"
+        android:visibility="gone"
+        layout="@layout/layout_loading" />
 </androidx.constraintlayout.widget.ConstraintLayout>
