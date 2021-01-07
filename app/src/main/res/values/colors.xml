@@ -9,4 +9,7 @@
 
     <color name="backgroundColor">#F1F1F1</color>
     <color name="loadingBackgroundColor">#55000000</color>
+
+    <color name="joinWarning">#FF0000</color>
+    <color name="joinCorrect">#00FF00</color>
 </resources>
