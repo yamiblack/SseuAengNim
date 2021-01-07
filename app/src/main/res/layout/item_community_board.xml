@@ -15,7 +15,7 @@
         android:elevation="10dp">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textBoardName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="14dp"
@@ -26,27 +26,27 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/textBoardCurrentDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="14dp"
             android:text="2021. 01. 04. 14:24"
             android:textSize="12sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView2"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textBoardName"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/textBoardDescription"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="16dp"
             android:text="스터디 그룹을 모집하는 게시판입니다. 공부내용/지역/모집 인원 양식으로 게시글 작성해주세요."
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/textView3"
+            app:layout_constraintEnd_toEndOf="@+id/textBoardCurrentDate"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintStart_toStartOf="@+id/textBoardName"
+            app:layout_constraintTop_toBottomOf="@+id/textBoardName" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
