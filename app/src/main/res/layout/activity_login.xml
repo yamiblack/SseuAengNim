@@ -23,6 +23,7 @@
         android:id="@+id/switchLoginAuto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:checked="true"
         android:text="자동로그인"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -101,5 +102,10 @@
             android:text="회원가입" />
 
     </LinearLayout>
+
+    <include
+        android:id="@+id/loadingLayout"
+        android:visibility="gone"
+        layout="@layout/layout_loading" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
