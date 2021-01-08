@@ -7,11 +7,12 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.preference.PreferenceManager
 import com.jaktongdan.android.sseuaengnim.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
-    private val preference by lazy { getSharedPreferences(Preference.SETTINGS.id, Context.MODE_PRIVATE)}
+    private val preference by lazy { PreferenceManager.getDefaultSharedPreferences(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,10 +36,13 @@ class LoginActivity : AppCompatActivity() {
                 ).addOnCompleteListener {
                     binding.loadingLayout.root.visibility = View.GONE
                     window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
-                }.addOnSuccessListener {
+                }.addOnSuccessListener { result ->
                     preference.edit().putBoolean(
                             Settings.AUTOLOGIN.id,
                             binding.switchLoginAuto.isChecked
+                    ).putString(
+                            Settings.NICKNAME.id,
+                            result.user!!.displayName
                     ).apply()
                     startActivity(Intent(this, MainActivity::class.java))
                     finish()
