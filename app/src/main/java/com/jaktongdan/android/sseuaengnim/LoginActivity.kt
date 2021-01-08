@@ -1,18 +1,15 @@
 package com.jaktongdan.android.sseuaengnim
 
-import android.content.Context
 import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import androidx.preference.PreferenceManager
 import com.jaktongdan.android.sseuaengnim.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
-    private val preference by lazy { PreferenceManager.getDefaultSharedPreferences(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +34,7 @@ class LoginActivity : AppCompatActivity() {
                     binding.loadingLayout.root.visibility = View.GONE
                     window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
                 }.addOnSuccessListener { result ->
-                    preference.edit().putBoolean(
+                    kPreference(this).edit().putBoolean(
                             Settings.AUTOLOGIN.id,
                             binding.switchLoginAuto.isChecked
                     ).putString(
