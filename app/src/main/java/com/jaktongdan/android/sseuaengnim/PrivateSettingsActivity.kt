@@ -5,13 +5,11 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceFragmentCompat
-import androidx.preference.PreferenceManager
 import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.jaktongdan.android.sseuaengnim.databinding.ActivityPrivateSettingsBinding
 
 class PrivateSettingsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPrivateSettingsBinding
-    private val preference by lazy { PreferenceManager.getDefaultSharedPreferences(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +28,7 @@ class PrivateSettingsActivity : AppCompatActivity() {
             finishAffinity()
         }
 
-        preference.registerOnSharedPreferenceChangeListener { sharedPreferences, key ->
+        kPreference(this).registerOnSharedPreferenceChangeListener { sharedPreferences, key ->
             val value = sharedPreferences.all[key]
             when(key) {
                 Settings.NICKNAME.id -> {

@@ -1,24 +1,20 @@
 package com.jaktongdan.android.sseuaengnim
 
-import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
-import androidx.preference.PreferenceManager
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.jaktongdan.android.sseuaengnim.databinding.ActivityJoinBinding
-import java.lang.Exception
 import java.util.regex.Pattern
 
 class JoinActivity : AppCompatActivity() {
     private lateinit var binding: ActivityJoinBinding
-    private val preference by lazy { PreferenceManager.getDefaultSharedPreferences(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -119,7 +115,7 @@ class JoinActivity : AppCompatActivity() {
                                     "email" to binding.editTextJoinEmail.text.toString()
                             )
                     ).addOnSuccessListener {
-                        preference.edit().putString(Settings.NICKNAME.id, result.user!!.displayName).apply()
+                        kPreference(this).edit().putString(Settings.NICKNAME.id, result.user!!.displayName).apply()
                         startActivity(Intent(view.context, MainActivity::class.java))
                         finishAffinity()
                     }.addOnFailureListener(onFailureListener)
