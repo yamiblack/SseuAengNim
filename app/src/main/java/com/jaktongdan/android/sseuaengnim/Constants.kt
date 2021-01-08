@@ -3,6 +3,11 @@ package com.jaktongdan.android.sseuaengnim
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
+
+enum class Firestore {
+    MEMBER, BOARD, POST, COMMENT
+}
 
 enum class Firestore {
     MEMBER, BOARD, POST, COMMENT
@@ -20,3 +25,4 @@ enum class Settings(var id: String, var default: Any) {
 //Google Firebase
 val kAuth = Firebase.auth
 val kFirestore = Firebase.firestore
+val kStorage = Firebase.storage.reference
