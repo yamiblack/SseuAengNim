@@ -1,13 +1,15 @@
 package com.jaktongdan.android.sseuaengnim
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.jaktongdan.android.sseuaengnim.databinding.ActivityJoinBinding
 import java.util.regex.Pattern
 
@@ -89,21 +91,36 @@ class JoinActivity : AppCompatActivity() {
             }
         }
 
-        binding.buttonJoinSubmit.setOnClickListener {
+        val onFailureListener = OnFailureListener { e ->
+            binding.loadingLayout.root.visibility = View.GONE
+            window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+            Toast.makeText(baseContext, e.localizedMessage, Toast.LENGTH_LONG).show()
+        }
+
+        binding.buttonJoinSubmit.setOnClickListener { view ->
             binding.loadingLayout.root.visibility = View.VISIBLE
             window.addFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
             kAuth.createUserWithEmailAndPassword(
                     binding.editTextJoinEmail.text.toString(),
                     binding.editTextJoinPassword.text.toString()
-            ).addOnCompleteListener {
-                binding.loadingLayout.root.visibility = View.GONE
-                window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
-            }.addOnSuccessListener { _ ->
-                startActivity(Intent(it.context, MainActivity::class.java))
-                finishAffinity()
-            }.addOnFailureListener { e ->
-                Toast.makeText(it.context, e.localizedMessage, Toast.LENGTH_LONG).show()
-            }
+            ).addOnSuccessListener { result ->
+                result.user!!.updateProfile(
+                        userProfileChangeRequest {
+                            displayName = binding.editTextJoinNickname.text.toString()
+                        }
+                ).addOnSuccessListener {
+                    kFirestore.collection(Firestore.MEMBER.name).document(result.user!!.uid).set(
+                            hashMapOf(
+                                    "nickname" to binding.editTextJoinNickname.text.toString(),
+                                    "email" to binding.editTextJoinEmail.text.toString()
+                            )
+                    ).addOnSuccessListener {
+                        kPreference(this).edit().putString(Settings.NICKNAME.id, result.user!!.displayName).apply()
+                        startActivity(Intent(view.context, MainActivity::class.java))
+                        finishAffinity()
+                    }.addOnFailureListener(onFailureListener)
+                }.addOnFailureListener(onFailureListener)
+            }.addOnFailureListener(onFailureListener)
         }
     }
 
@@ -114,4 +131,5 @@ class JoinActivity : AppCompatActivity() {
 
         return super.onOptionsItemSelected(item)
     }
+
 }
