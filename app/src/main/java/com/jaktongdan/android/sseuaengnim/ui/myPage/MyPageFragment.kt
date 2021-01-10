@@ -25,7 +25,7 @@ class MyPageFragment : Fragment() {
         uri?.let {
             kFirestore.collection(Firestore.MEMBER.name).document(kAuth.uid!!).get().addOnSuccessListener { docs ->
                 docs.getString("photo")?.let { url ->
-                    kStorage.child("profiles/$url").delete().addOnSuccessListener { _ ->
+                    kStorage.child("profiles/$url").delete().addOnCompleteListener { _ ->
                         val fileName = UUID.randomUUID().toString()
                         kStorage.child("profiles/$fileName").putFile(it)
                         kFirestore.collection(Firestore.MEMBER.name).document(kAuth.uid!!).update("photo", fileName)
@@ -40,7 +40,7 @@ class MyPageFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View {
         binding = FragmentMyPageBinding.inflate(inflater)
         myPageViewModel = ViewModelProvider(this).get(MyPageViewModel::class.java)
 
