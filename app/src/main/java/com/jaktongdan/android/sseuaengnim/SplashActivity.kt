@@ -1,15 +1,13 @@
 package com.jaktongdan.android.sseuaengnim
 
-import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import androidx.appcompat.app.AppCompatActivity
+import androidx.preference.PreferenceManager
 
 class SplashActivity : AppCompatActivity() {
-    private val preference by lazy { getSharedPreferences(Preference.SETTINGS.id, Context.MODE_PRIVATE)}
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
@@ -18,10 +16,11 @@ class SplashActivity : AppCompatActivity() {
 
         Handler(Looper.getMainLooper()).postDelayed({
                 startActivity(Intent(this,
-                        if(preference.getBoolean(Settings.AUTOLOGIN.id, Settings.AUTOLOGIN.default as Boolean)
-                                && kAuth.currentUser != null)
+                        if(kPreference(this).getBoolean(Settings.AUTOLOGIN.id, Settings.AUTOLOGIN.default as Boolean)
+                                && kAuth.currentUser != null) {
+                            kPreference(this).edit().putString(Settings.NICKNAME.id, kAuth.currentUser!!.displayName).apply()
                             MainActivity::class.java
-                        else {
+                        } else {
                             kAuth.signOut()
                             LoginActivity::class.java
                         }

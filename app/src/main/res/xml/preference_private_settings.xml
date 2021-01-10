@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="auto_login"
+        android:title="자동 로그인" />
+    <EditTextPreference
+        android:key="nickname"
+        android:defaultValue=""
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="닉네임 변경" />
+</PreferenceScreen>
