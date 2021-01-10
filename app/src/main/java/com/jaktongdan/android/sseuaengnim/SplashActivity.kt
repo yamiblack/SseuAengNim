@@ -17,9 +17,10 @@ class SplashActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
                 startActivity(Intent(this,
                         if(kPreference(this).getBoolean(Settings.AUTOLOGIN.id, Settings.AUTOLOGIN.default as Boolean)
-                                && kAuth.currentUser != null)
+                                && kAuth.currentUser != null) {
+                            kPreference(this).edit().putString(Settings.NICKNAME.id, kAuth.currentUser!!.displayName).apply()
                             MainActivity::class.java
-                        else {
+                        } else {
                             kAuth.signOut()
                             LoginActivity::class.java
                         }
