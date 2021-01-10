@@ -32,7 +32,6 @@ class PostRecyclerViewAdapter(options: FirestoreRecyclerOptions<PostData>)
                 textPostDate.text = post.date.toString()
                 textPostThumbs.text = post.thumbs.size.toString()
 
-
                 post.writer!!.get().addOnSuccessListener { member ->
                     textPostWriter.text = member.getString("nickname") ?: ""
                 }
