@@ -11,10 +11,6 @@ enum class Firestore {
     MEMBER, BOARD, POST, COMMENT
 }
 
-enum class Firestore {
-    MEMBER, BOARD, POST, COMMENT
-}
-
 enum class Preference(var id: String) {
     SETTINGS("settings")
 }
