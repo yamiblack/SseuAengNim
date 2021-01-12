@@ -13,6 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SseuAengNim">
         <activity android:name=".PrivateSettingsActivity" />
+        <activity android:name=".AddPlanActivity" />
+        <activity
+            android:name=".AddDDayPopupActivity"
+            android:theme="@style/Theme.AppCompat.Dialog" />
         <activity android:name=".PostWriteActivity" />
         <activity android:name=".PostListActivity" />
         <activity android:name=".JoinActivity" />
