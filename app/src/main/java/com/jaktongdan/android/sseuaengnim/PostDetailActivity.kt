@@ -101,7 +101,7 @@ class PostDetailActivity : AppCompatActivity() {
                 }.addOnFailureListener { e ->
                     Toast.makeText(this, e.localizedMessage, Toast.LENGTH_LONG).show()
                 }
-            }
+            } else Toast.makeText(this, "댓글 내용을 작성해주세요", Toast.LENGTH_SHORT).show()
         }
     }
 
