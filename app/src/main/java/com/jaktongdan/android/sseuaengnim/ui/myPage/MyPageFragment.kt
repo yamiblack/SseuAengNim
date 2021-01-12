@@ -12,8 +12,12 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.content.res.AppCompatResources.getColorStateList
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import com.jaktongdan.android.sseuaengnim.*
+import com.jaktongdan.android.sseuaengnim.adapter.MyPageViewPagerAdapter
 import com.jaktongdan.android.sseuaengnim.databinding.FragmentMyPageBinding
 import java.util.*
 
@@ -46,12 +50,17 @@ class MyPageFragment : Fragment() {
 
         loadProfile()
 
-        binding.tabLayoutMyPage.apply {
-            getTabAt(0)?.text = "내가 쓴 글"
-            getTabAt(1)?.text = "내가 쓴 댓글"
+        binding.viewPagerMyPage.adapter = MyPageViewPagerAdapter()
+        binding.viewPagerMyPage.orientation = ViewPager2.ORIENTATION_HORIZONTAL
 
-            tabTextColors = getColorStateList(context, android.R.color.black)
-        }
+        TabLayoutMediator(binding.tabLayoutMyPage, binding.viewPagerMyPage) { tab: TabLayout.Tab, i: Int ->
+            tab.text = when(i) {
+                0 -> "내가 쓴 글"
+                else -> "내가 쓴 댓글"
+            }
+        }.attach()
+
+        //binding.tabLayoutMyPage.tabTextColors = getColorStateList(requireContext(), android.R.color.black)
 
         binding.buttonMyPageSettings.setOnClickListener {
             startActivity(Intent(context, PrivateSettingsActivity::class.java))
@@ -59,7 +68,6 @@ class MyPageFragment : Fragment() {
 
         binding.cardViewMyPageProfile.setOnClickListener {
             checkPermission.launch(android.Manifest.permission.READ_EXTERNAL_STORAGE)
-            //loadPhoto()
         }
 
         return binding.root
@@ -79,7 +87,7 @@ class MyPageFragment : Fragment() {
         kFirestore.collection(Firestore.MEMBER.name).document(kAuth.uid!!).get()
                 .addOnSuccessListener {
                     kStorage.child("profiles/${it.getString("photo")}").downloadUrl.addOnSuccessListener { uri ->
-                        Glide.with(this).load(uri).into(binding.imageMyPageProfile)
+                        Glide.with(requireContext()).load(uri).into(binding.imageMyPageProfile)
                     }
                 }
     }
