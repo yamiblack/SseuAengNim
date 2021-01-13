@@ -26,6 +26,7 @@
         android:background="@drawable/edittext_border"
         android:ems="10"
         android:inputType="textPersonName"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/labelAddBoardName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/labelAddBoardName"

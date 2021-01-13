@@ -35,11 +35,7 @@ class PrivateSettingsActivity : AppCompatActivity() {
                     if((value as String).isBlank())
                         sharedPreferences.edit().putString(key, kAuth.currentUser!!.displayName).apply()
                     else {
-                        kAuth.currentUser!!.updateProfile(
-                                userProfileChangeRequest {
-                                    displayName = value
-                                }
-                        )
+                        kAuth.currentUser!!.updateProfile(userProfileChangeRequest { displayName = value })
                         kFirestore.collection(Firestore.MEMBER.name).document(kAuth.currentUser!!.uid)
                                 .update("nickname", value)
                     }
