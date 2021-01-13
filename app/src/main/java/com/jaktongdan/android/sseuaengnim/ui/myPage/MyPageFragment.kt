@@ -7,11 +7,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.content.res.AppCompatResources.getColorStateList
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayout
@@ -50,8 +52,15 @@ class MyPageFragment : Fragment() {
 
         loadProfile()
 
+        binding.scrollViewMyPage.run {
+            header = binding.tabLayoutMyPage
+            stickListener = { _ -> }
+            freeListener = { _ -> }
+        }
+
         binding.viewPagerMyPage.adapter = MyPageViewPagerAdapter()
         binding.viewPagerMyPage.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+        binding.viewPagerMyPage.addItemDecoration(DividerItemDecoration(requireContext(), LinearLayout.HORIZONTAL))
 
         TabLayoutMediator(binding.tabLayoutMyPage, binding.viewPagerMyPage) { tab: TabLayout.Tab, i: Int ->
             tab.text = when(i) {

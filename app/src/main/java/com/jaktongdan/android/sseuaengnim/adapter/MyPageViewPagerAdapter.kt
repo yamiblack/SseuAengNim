@@ -38,12 +38,17 @@ class MyPageViewPagerAdapter: RecyclerView.Adapter<MyPageViewPagerAdapter.PagerV
                                 else kFirestore.collection(Firestore.COMMENT.name)
                             .whereEqualTo("writer", kFirestore.collection(Firestore.MEMBER.name).document(kAuth.uid!!))
                             .orderBy("date", Query.Direction.DESCENDING)
+                            .orderBy("post")
                     val options = FirestoreRecyclerOptions.Builder<PostData>().setQuery(query, PostData::class.java).build()
                     val listAdapter = PostRecyclerViewAdapter(options)
 
                     addItemDecoration(DividerItemDecoration(binding.root.context, LinearLayout.VERTICAL))
                     adapter = listAdapter
-                    layoutManager = LinearLayoutManager(binding.root.context)
+                    layoutManager = object : LinearLayoutManager(binding.root.context) {
+                        override fun canScrollVertically(): Boolean {
+                            return false
+                        }
+                    }
 
                     listAdapter.startListening()
                 }
