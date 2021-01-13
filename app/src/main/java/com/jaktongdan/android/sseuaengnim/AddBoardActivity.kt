@@ -2,6 +2,7 @@ package com.jaktongdan.android.sseuaengnim
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Toast
 import com.jaktongdan.android.sseuaengnim.databinding.ActivityAddBoardBinding
 import java.util.*
@@ -13,6 +14,9 @@ class AddBoardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAddBoardBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        supportActionBar?.title = "게시판 추가"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.buttonAddBoardSubmit.setOnClickListener {
             if(binding.editTextAddBoardName.text.isNullOrBlank()
@@ -33,5 +37,12 @@ class AddBoardActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> finish()
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

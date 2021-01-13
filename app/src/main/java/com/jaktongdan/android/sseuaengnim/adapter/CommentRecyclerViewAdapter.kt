@@ -57,7 +57,7 @@ class CommentRecyclerViewAdapter(options: FirestoreRecyclerOptions<CommentData>,
                 if (comment.writer.id == kAuth.uid!!) {
                     iconCommentDelete.visibility = View.VISIBLE
                     iconCommentDelete.setOnClickListener {
-                        AlertDialog.Builder(binding.root.context, android.R.style.Theme_DeviceDefault_Dialog_Alert)
+                        AlertDialog.Builder(binding.root.context, android.R.style.Theme_DeviceDefault_Light_Dialog_Alert)
                                 .setMessage("댓글을 삭제하시겠습니까?")
                                 .setPositiveButton("예") { _, _ ->
                                     snapshots.getSnapshot(position).reference.delete().addOnSuccessListener {
