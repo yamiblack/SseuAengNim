@@ -52,6 +52,22 @@ class MyPageFragment : Fragment() {
 
         loadProfile()
 
+        kFirestore.collectionGroup("post").whereEqualTo("writer", kFirestore.collection(Firestore.MEMBER.name).document(kAuth.uid!!))
+                .get().addOnSuccessListener {
+                    it.documents.forEach { post ->
+                        binding.textMyPageThumbs.text =
+                                (Integer.parseInt(binding.textMyPageThumbs.text.toString()) + ((post["thumbs"] as List<String>?)?.size ?: 0)).toString()
+                    }
+                }
+
+        kFirestore.collection(Firestore.COMMENT.name).whereEqualTo("writer", kFirestore.collection(Firestore.MEMBER.name).document(kAuth.uid!!))
+                .get().addOnSuccessListener {
+                    it.documents.forEach { post ->
+                        binding.textMyPageThumbs.text =
+                                (Integer.parseInt(binding.textMyPageThumbs.text.toString()) + ((post["thumbs"] as List<String>?)?.size ?: 0)).toString()
+                    }
+                }
+
         binding.scrollViewMyPage.run {
             header = binding.tabLayoutMyPage
             stickListener = { _ -> }
@@ -96,7 +112,11 @@ class MyPageFragment : Fragment() {
         kFirestore.collection(Firestore.MEMBER.name).document(kAuth.uid!!).get()
                 .addOnSuccessListener {
                     kStorage.child("profiles/${it.getString("photo")}").downloadUrl.addOnSuccessListener { uri ->
-                        Glide.with(requireContext()).load(uri).into(binding.imageMyPageProfile)
+                        try {
+                            Glide.with(requireContext()).load(uri).into(binding.imageMyPageProfile)
+                        } catch (e: Exception) {
+                            e.printStackTrace()
+                        }
                     }
                 }
     }

@@ -70,11 +70,18 @@
                         android:layout_weight="1" />
 
                     <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="받은 공감 " />
+
+                    <TextView
                         android:id="@+id/textMyPageThumbs"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="받은 공감 30" />
+                        android:text="0" />
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>

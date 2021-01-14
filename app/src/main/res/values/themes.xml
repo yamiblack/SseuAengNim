@@ -32,7 +32,7 @@
     </style>
 
     <style name="ButtonStyle" parent="@style/Widget.MaterialComponents.Button">
-        <item name="android:backgroundTint">@color/buttonColor</item>
+        <item name="backgroundTint">@color/buttonColor</item>
         <item name="android:textColor">@color/descriptionColor</item>
     </style>
 </resources>
