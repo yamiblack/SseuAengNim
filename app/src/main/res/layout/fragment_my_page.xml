@@ -6,6 +6,8 @@
     android:id="@+id/scrollViewMyPage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     tools:context=".ui.myPage.MyPageFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -102,6 +104,7 @@
                 android:id="@+id/imageMyPageProfile"
                 android:layout_width="145dp"
                 android:layout_height="145dp"
+                android:layout_margin="3dp"
                 android:scaleType="centerCrop"
                 tools:src="@tools:sample/avatars" />
 
