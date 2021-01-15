@@ -25,7 +25,7 @@
                     android:id="@+id/textPostDetailTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="22dp"
+                    android:layout_marginStart="14dp"
                     android:layout_marginTop="22dp"
                     android:text="한능검 스터디 모집합니다"
                     android:textSize="18sp"
@@ -67,12 +67,11 @@
                     android:id="@+id/textPostDetailDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:text="1시간 전"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/textPostDetailContent"
                     app:layout_constraintTop_toBottomOf="@+id/textPostDetailContent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

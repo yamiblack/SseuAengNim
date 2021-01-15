@@ -1,9 +1,11 @@
 package com.jaktongdan.android.sseuaengnim
 
+import android.app.AlertDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.Query
@@ -48,9 +50,21 @@ class PostListActivity : AppCompatActivity() {
         binding.recyclerViewPost.adapter?.notifyDataSetChanged()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_board, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             android.R.id.home -> finish()
+            R.id.infoBoard -> {
+                AlertDialog.Builder(binding.root.context, android.R.style.Theme_DeviceDefault_Light_Dialog_Alert)
+                        .setTitle(intent.getStringExtra("name"))
+                        .setMessage(intent.getStringExtra("description"))
+                        .setNeutralButton("확인") { _, _ -> }
+                        .show()
+            }
         }
 
         return super.onOptionsItemSelected(item)
