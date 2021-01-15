@@ -31,7 +31,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="14dp"
-            android:text="2021. 01. 04. 14:24"
             android:textSize="12sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/textBoardName"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -42,6 +41,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="16dp"
+            android:ellipsize="end"
+            android:maxLines="3"
             android:text="스터디 그룹을 모집하는 게시판입니다. 공부내용/지역/모집 인원 양식으로 게시글 작성해주세요."
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textBoardCurrentDate"

@@ -10,11 +10,21 @@ import java.util.*
 class PostWriteActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPostWriteBinding
     private val boardId by lazy { intent.getStringExtra("board")!! }
+    private val postId by lazy { intent.getStringExtra("post") }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPostWriteBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        intent.getStringExtra("post")?.let { post ->
+            kFirestore.collection(Firestore.BOARD.name).document(boardId)
+                    .collection(Firestore.POST.name).document(post)
+                    .get().addOnSuccessListener { doc ->
+                        binding.editTextPostTitle.setText(doc.getString("title"))
+                        binding.editTextPostContent.setText(doc.getString("content"))
+                    }
+        }
 
         supportActionBar?.title = "글 작성"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -32,21 +42,38 @@ class PostWriteActivity : AppCompatActivity() {
                 binding.loadingLayout.root.visibility = View.VISIBLE
                 window.addFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
 
-                kFirestore.collection(Firestore.BOARD.name).document(boardId)
-                        .collection(Firestore.POST.name).add(
-                                hashMapOf(
-                                        "title" to binding.editTextPostTitle.text.toString(),
-                                        "content" to binding.editTextPostContent.text.toString(),
-                                        "writer" to kFirestore.collection(Firestore.MEMBER.name).document(kAuth.uid!!),
-                                        "date" to Date()
-                                )
-                        ).addOnSuccessListener {
-                            finish()
-                        }.addOnFailureListener { e ->
-                            binding.loadingLayout.root.visibility = View.GONE
-                            window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
-                            Toast.makeText(this, e.localizedMessage, Toast.LENGTH_LONG).show()
-                        }
+                postId?.let { post ->
+                    kFirestore.collection(Firestore.BOARD.name).document(boardId)
+                            .collection(Firestore.POST.name).document(post).update(
+                                    hashMapOf(
+                                            "title" to binding.editTextPostTitle.text.toString(),
+                                            "content" to binding.editTextPostContent.text.toString(),
+                                            "writer" to kFirestore.collection(Firestore.MEMBER.name).document(kAuth.uid!!)
+                                    )
+                            ).addOnSuccessListener {
+                                finish()
+                            }.addOnFailureListener { e ->
+                                binding.loadingLayout.root.visibility = View.GONE
+                                window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+                                Toast.makeText(this, e.localizedMessage, Toast.LENGTH_LONG).show()
+                            }
+                } ?: run {
+                    kFirestore.collection(Firestore.BOARD.name).document(boardId)
+                            .collection(Firestore.POST.name).add(
+                                    hashMapOf(
+                                            "title" to binding.editTextPostTitle.text.toString(),
+                                            "content" to binding.editTextPostContent.text.toString(),
+                                            "writer" to kFirestore.collection(Firestore.MEMBER.name).document(kAuth.uid!!),
+                                            "date" to Date()
+                                    )
+                            ).addOnSuccessListener {
+                                finish()
+                            }.addOnFailureListener { e ->
+                                binding.loadingLayout.root.visibility = View.GONE
+                                window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+                                Toast.makeText(this, e.localizedMessage, Toast.LENGTH_LONG).show()
+                            }
+                }
             }
         }
 

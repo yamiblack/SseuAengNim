@@ -4,12 +4,11 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
-import com.jaktongdan.android.sseuaengnim.Firestore
-import com.jaktongdan.android.sseuaengnim.PostDetailActivity
+import com.jaktongdan.android.sseuaengnim.*
 import com.jaktongdan.android.sseuaengnim.databinding.ItemPostListBinding
-import com.jaktongdan.android.sseuaengnim.kFirestore
 import com.jaktongdan.android.sseuaengnim.model.PostData
 
 class PostRecyclerViewAdapter(options: FirestoreRecyclerOptions<PostData>)
@@ -29,11 +28,14 @@ class PostRecyclerViewAdapter(options: FirestoreRecyclerOptions<PostData>)
             binding.apply {
                 textPostTitle.text = post.title
                 textPostContent.text = post.content
-                textPostDate.text = post.date.toString()
+                textPostDate.text = kTimeText(post.date)
                 textPostThumbs.text = post.thumbs.size.toString()
 
                 post.writer!!.get().addOnSuccessListener { member ->
                     textPostWriter.text = member.getString("nickname") ?: ""
+                    kStorage.child("profiles/${member.getString("photo")}").downloadUrl.addOnSuccessListener { uri ->
+                        Glide.with(binding.root).load(uri).into(binding.imagePostProfile)
+                    }
                 }
 
                 kFirestore.collection(Firestore.COMMENT.name)
