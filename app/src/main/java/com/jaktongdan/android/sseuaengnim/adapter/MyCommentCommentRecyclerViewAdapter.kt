@@ -25,6 +25,7 @@ class MyCommentCommentRecyclerViewAdapter(private val comments: List<DocumentSna
             binding.run {
                 textMyCommentContent.text = comment.getString("content")
                 textMyCommentDate.text = kTimeText(comment.getDate("date")!!)
+                textMyCommentThumbsCount.text = ((comment["thumbs"] as List<*>?)?.size ?: 0).toString()
             }
         }
     }
