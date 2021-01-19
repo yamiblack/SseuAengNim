@@ -15,6 +15,7 @@
         <activity android:name=".PostDetailActivity" />
         <activity android:name=".AddBoardActivity" />
         <activity android:name=".PostWriteActivity" />
+        <activity android:name=".AddPlanActivity" />
         <activity android:name=".PrivateSettingsActivity" />
         <activity android:name=".PostListActivity" />
         <activity android:name=".JoinActivity" />

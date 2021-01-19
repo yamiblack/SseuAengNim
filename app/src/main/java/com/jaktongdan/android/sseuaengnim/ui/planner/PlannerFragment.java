@@ -1,7 +1,6 @@
 package com.jaktongdan.android.sseuaengnim.ui.planner;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,8 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,7 +18,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.jaktongdan.android.sseuaengnim.AddDDayPopupActivity;
 import com.jaktongdan.android.sseuaengnim.AddPlanActivity;
 import com.jaktongdan.android.sseuaengnim.R;
 
@@ -44,12 +40,17 @@ public class PlannerFragment extends Fragment {
         });
         setHasOptionsMenu(true);
 
-        btnAddDDay = (Button) dDayDialog.findViewById(R.id.btn_addDDay);
-
-
         dDayDialog = new Dialog(getActivity());
         dDayDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dDayDialog.setContentView(R.layout.dialog_add_dday);
+        btnAddDDay = (Button) dDayDialog.findViewById(R.id.btn_addDDay);
+
+        btnAddDDay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Toast.makeText(getActivity(), "성공", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         return root;
     }
