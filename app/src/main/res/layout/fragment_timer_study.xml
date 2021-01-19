@@ -6,16 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".ui.planner.PlannerFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_plannerList_today"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="@android:color/transparent"
-        android:divider="#ffffff"
-        android:dividerHeight="7dp"
-        android:scrollbars="vertical" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="시험 타이머"
+        tools:ignore="MissingConstraints">
+    </TextView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -72,7 +72,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="받은 공감 30" />
+                        android:text="받은 공감" />
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -91,12 +91,19 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/imageMyPageProfile"
+                android:id="@+id/imageMyPageProfileAdd"
                 android:layout_width="145dp"
                 android:layout_height="145dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_baseline_add_24"
                 app:tint="@android:color/white" />
+
+            <ImageView
+                android:id="@+id/imageMyPageProfile"
+                android:layout_width="145dp"
+                android:layout_height="145dp"
+                android:scaleType="centerCrop"
+                tools:src="@tools:sample/avatars" />
 
         </androidx.cardview.widget.CardView>
 
@@ -107,8 +114,7 @@
             android:layout_marginTop="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView2"
-            app:tabIndicatorColor="@android:color/black" />
+            app:layout_constraintTop_toBottomOf="@+id/cardView2" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPagerMyPage"

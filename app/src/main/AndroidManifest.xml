@@ -12,8 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SseuAengNim">
-        <activity android:name=".PrivateSettingsActivity" />
+        <activity android:name=".PostDetailActivity" />
+        <activity android:name=".AddBoardActivity" />
         <activity android:name=".PostWriteActivity" />
+        <activity android:name=".AddPlanActivity" />
+        <activity android:name=".PrivateSettingsActivity" />
         <activity android:name=".PostListActivity" />
         <activity android:name=".JoinActivity" />
         <activity android:name=".LoginActivity" />
