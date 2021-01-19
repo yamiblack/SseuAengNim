@@ -61,6 +61,7 @@ dependencies {
 
     //Firebase UI
     implementation 'com.firebaseui:firebase-ui-storage:7.1.1'
+    implementation 'com.firebaseui:firebase-ui-firestore:7.1.1'
 
     // https://github.com/bumptech/glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
