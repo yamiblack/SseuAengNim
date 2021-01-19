@@ -38,9 +38,7 @@ class BoardRecyclerViewAdapter(options: FirestoreRecyclerOptions<BoardData>)
 
                 cardBoard.setOnClickListener {
                     root.context.startActivity(Intent(root.context, PostListActivity::class.java)
-                            .putExtra("board", board.id)
-                            .putExtra("name", board.name)
-                            .putExtra("description", board.description))
+                            .putExtra("board", board.id))
                 }
             }
         }

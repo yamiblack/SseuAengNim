@@ -53,7 +53,7 @@
         android:id="@+id/textCommentThumbs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="2dp"
         android:layout_marginBottom="10dp"
         android:text="0"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -70,15 +70,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageCommentProfile"
         app:srcCompat="@drawable/ic_baseline_delete_24" />
-
-    <TextView
-        android:id="@+id/textCommentDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1시간 전"
-        android:textSize="12sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textCommentThumbs"
-        app:layout_constraintStart_toStartOf="@+id/textCommentContent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

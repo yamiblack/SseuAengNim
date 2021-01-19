@@ -3,6 +3,7 @@
     package="com.jaktongdan.android.sseuaengnim">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -11,9 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SseuAengNim">
-        <activity android:name=".PostDetailActivity"></activity>
+        <activity android:name=".PostDetailActivity" />
         <activity android:name=".AddBoardActivity" />
         <activity android:name=".PostWriteActivity" />
+        <activity android:name=".PrivateSettingsActivity" />
         <activity android:name=".PostListActivity" />
         <activity android:name=".JoinActivity" />
         <activity android:name=".LoginActivity" />

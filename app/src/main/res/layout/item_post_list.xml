@@ -16,14 +16,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="10dp"
-            android:ellipsize="end"
-            android:maxLines="1"
             android:text="한능검 스터디 모집합니다"
             android:textColor="@android:color/black"
             android:textSize="22sp"
-            app:layout_constraintEnd_toStartOf="@+id/linearLayout"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -79,8 +74,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:ellipsize="end"
-            android:maxLines="3"
             android:text="올해 말에 있는 시험 목표로 한능검 같이 준비하실 분들 모집합니다. 서울쪽에서 스터디하고, 6명 정도로만 생각하고 있습니다. 관심 있으신 분들은 오픈 카카오톡으로 메시지 주시면 답장해드리겠습니다. http://open.kak..."
             app:layout_constraintEnd_toEndOf="@+id/linearLayout"
             app:layout_constraintHorizontal_bias="0.0"
@@ -91,12 +84,13 @@
             android:id="@+id/textPostDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="12dp"
             android:text="1시간 전"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textPostContent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textPostContent" />
 
         <ImageView
