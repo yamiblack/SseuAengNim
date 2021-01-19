@@ -1,5 +1,7 @@
 package com.jaktongdan.android.sseuaengnim.ui.planner;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +10,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +28,9 @@ import com.jaktongdan.android.sseuaengnim.R;
 public class PlannerFragment extends Fragment {
 
     private PlannerViewModel plannerViewModel;
+    private Dialog dDayDialog;
+
+    Button btnAddDDay;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -36,6 +43,14 @@ public class PlannerFragment extends Fragment {
             }
         });
         setHasOptionsMenu(true);
+
+        btnAddDDay = (Button) dDayDialog.findViewById(R.id.btn_addDDay);
+
+
+        dDayDialog = new Dialog(getActivity());
+        dDayDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dDayDialog.setContentView(R.layout.dialog_add_dday);
+
         return root;
     }
 
@@ -52,7 +67,9 @@ public class PlannerFragment extends Fragment {
                 startActivity(new Intent(getActivity(), AddPlanActivity.class));
                 break;
             case R.id.setupPlan:
-                startActivity(new Intent(getActivity(), AddDDayPopupActivity.class));
+//                startActivity(new Intent(getActivity(), AddDDayPopupActivity.class));
+//                break;
+                dDayDialog.show();
                 break;
         }
 
