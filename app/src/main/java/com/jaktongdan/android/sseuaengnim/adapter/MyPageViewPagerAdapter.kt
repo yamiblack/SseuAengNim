@@ -7,9 +7,14 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.Query
-import com.jaktongdan.android.sseuaengnim.*
+import com.jaktongdan.android.sseuaengnim.Firestore
+import com.jaktongdan.android.sseuaengnim.R
 import com.jaktongdan.android.sseuaengnim.databinding.PageMyPageListBinding
+import com.jaktongdan.android.sseuaengnim.kAuth
+import com.jaktongdan.android.sseuaengnim.kFirestore
 import com.jaktongdan.android.sseuaengnim.model.PostData
 
 class MyPageViewPagerAdapter: RecyclerView.Adapter<MyPageViewPagerAdapter.PagerViewHolder>() {
@@ -32,20 +37,40 @@ class MyPageViewPagerAdapter: RecyclerView.Adapter<MyPageViewPagerAdapter.PagerV
         fun bindData(position: Int) {
             binding.apply {
                 recyclerViewMyPage.apply {
-                    val query = if (position == 0) kFirestore.collectionGroup(Firestore.POST.name)
-                            .whereEqualTo("writer", kFirestore.collection(Firestore.MEMBER.name).document(kAuth.uid!!))
-                            .orderBy("date", Query.Direction.DESCENDING)
-                                else kFirestore.collection(Firestore.COMMENT.name)
-                            .whereEqualTo("writer", kFirestore.collection(Firestore.MEMBER.name).document(kAuth.uid!!))
-                            .orderBy("date", Query.Direction.DESCENDING)
-                    val options = FirestoreRecyclerOptions.Builder<PostData>().setQuery(query, PostData::class.java).build()
-                    val listAdapter = PostRecyclerViewAdapter(options)
+                    when(position) {
+                        0 -> {
+                            val query = kFirestore.collectionGroup(Firestore.POST.name)
+                                    .whereEqualTo("writer", kFirestore.collection(Firestore.MEMBER.name).document(kAuth.uid!!))
+                                    .orderBy("date", Query.Direction.DESCENDING)
+                            val options = FirestoreRecyclerOptions.Builder<PostData>().setQuery(query, PostData::class.java).build()
+                            val listAdapter = PostRecyclerViewAdapter(options)
 
-                    addItemDecoration(DividerItemDecoration(binding.root.context, LinearLayout.VERTICAL))
-                    adapter = listAdapter
-                    layoutManager = LinearLayoutManager(binding.root.context)
+                            adapter = listAdapter
 
-                    listAdapter.startListening()
+                            listAdapter.startListening()
+                        }
+                        else -> {
+                            val postMap = hashMapOf<DocumentReference, ArrayList<DocumentSnapshot>>()
+                            kFirestore.collection(Firestore.COMMENT.name)
+                                    .whereEqualTo("writer", kFirestore.collection(Firestore.MEMBER.name).document(kAuth.uid!!))
+                                    .orderBy("date", Query.Direction.DESCENDING)
+                                    .get().addOnSuccessListener {
+                                        it.documents.forEach { doc ->
+                                            postMap[doc.getDocumentReference("post")]?.add(doc) ?: run {
+                                                postMap[doc.getDocumentReference("post")!!] = arrayListOf(doc)
+                                            }
+                                        }
+
+                                        adapter = MyCommentRecyclerViewAdapter(postMap)
+                                    }
+                        }
+                    }
+                    addItemDecoration(DividerItemDecoration(root.context, LinearLayout.VERTICAL))
+                    layoutManager = object : LinearLayoutManager(binding.root.context) {
+                        override fun canScrollVertically(): Boolean {
+                            return false
+                        }
+                    }
                 }
             }
         }

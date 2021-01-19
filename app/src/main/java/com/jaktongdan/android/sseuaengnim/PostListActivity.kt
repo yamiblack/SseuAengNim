@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.LinearLayout
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.Query
@@ -34,6 +36,7 @@ class PostListActivity : AppCompatActivity() {
 
         binding.recyclerViewPost.adapter = postRecyclerViewAdapter
         binding.recyclerViewPost.layoutManager = LinearLayoutManager(this)
+        binding.recyclerViewPost.addItemDecoration(DividerItemDecoration(this, LinearLayout.VERTICAL))
 
         postRecyclerViewAdapter.startListening()
 

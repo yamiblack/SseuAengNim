@@ -7,9 +7,11 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.jaktongdan.android.sseuaengnim.adapter.CommentRecyclerViewAdapter
@@ -86,6 +88,7 @@ class PostDetailActivity : AppCompatActivity() {
                 return false
             }
         }
+        binding.recyclerViewPostDetailComment.addItemDecoration(DividerItemDecoration(this, LinearLayout.VERTICAL))
 
         commentRecyclerViewAdapter.startListening()
 

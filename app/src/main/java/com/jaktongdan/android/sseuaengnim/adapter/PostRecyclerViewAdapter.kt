@@ -25,7 +25,7 @@ class PostRecyclerViewAdapter(options: FirestoreRecyclerOptions<PostData>)
 
     inner class ItemViewHolder(private val binding: ItemPostListBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bindData(post: PostData) {
-            binding.apply {
+            binding.run {
                 textPostTitle.text = post.title
                 textPostContent.text = post.content
                 textPostDate.text = kTimeText(post.date)
@@ -34,7 +34,7 @@ class PostRecyclerViewAdapter(options: FirestoreRecyclerOptions<PostData>)
                 post.writer!!.get().addOnSuccessListener { member ->
                     textPostWriter.text = member.getString("nickname") ?: ""
                     kStorage.child("profiles/${member.getString("photo")}").downloadUrl.addOnSuccessListener { uri ->
-                        Glide.with(binding.root).load(uri).into(binding.imagePostProfile)
+                        Glide.with(root).load(uri).into(imagePostProfile)
                     }
                 }
 

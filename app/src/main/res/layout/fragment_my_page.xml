@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.jaktongdan.android.sseuaengnim.customView.StickyScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.jaktongdan.android.sseuaengnim.customView.StickyScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scrollViewMyPage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundColor"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     tools:context=".ui.myPage.MyPageFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -68,11 +70,18 @@
                         android:layout_weight="1" />
 
                     <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="받은 공감 " />
+
+                    <TextView
                         android:id="@+id/textMyPageThumbs"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="받은 공감 30" />
+                        android:text="0" />
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -102,6 +111,7 @@
                 android:id="@+id/imageMyPageProfile"
                 android:layout_width="145dp"
                 android:layout_height="145dp"
+                android:layout_margin="3dp"
                 android:scaleType="centerCrop"
                 tools:src="@tools:sample/avatars" />
 

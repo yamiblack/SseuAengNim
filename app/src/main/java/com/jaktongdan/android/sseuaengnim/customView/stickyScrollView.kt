@@ -45,10 +45,8 @@ class StickyScrollView: NestedScrollView, ViewTreeObserver.OnGlobalLayoutListene
     override fun onScrollChanged(l: Int, t: Int, oldl: Int, oldt: Int) {
         super.onScrollChanged(l, t, oldl, oldt)
 
-        val scrolly = t
-
-        if (scrolly > mHeaderInitPosition) {
-            stickHeader(scrolly - mHeaderInitPosition)
+        if (t > mHeaderInitPosition) {
+            stickHeader(t - mHeaderInitPosition)
         } else {
             freeHeader()
         }
