@@ -14,6 +14,7 @@ import com.jaktongdan.android.sseuaengnim.databinding.ActivityPostDetailBinding
 import com.jaktongdan.android.sseuaengnim.databinding.ItemCommentBinding
 import com.jaktongdan.android.sseuaengnim.kAuth
 import com.jaktongdan.android.sseuaengnim.kStorage
+import com.jaktongdan.android.sseuaengnim.kTimeText
 import com.jaktongdan.android.sseuaengnim.model.CommentData
 
 class CommentRecyclerViewAdapter(options: FirestoreRecyclerOptions<CommentData>, val parentBinding: ActivityPostDetailBinding)
@@ -47,6 +48,7 @@ class CommentRecyclerViewAdapter(options: FirestoreRecyclerOptions<CommentData>,
 
                 textCommentContent.text = comment.content
                 textCommentThumbs.text = comment.thumbs.size.toString()
+                textCommentDate.text = kTimeText(comment.date)
 
                 if (comment.thumbs.contains(kAuth.uid!!)) {
                     iconCommentThumbs.setImageDrawable(
