@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.appcompat.app.AppCompatActivity
@@ -38,13 +39,20 @@ class PostListActivity : AppCompatActivity() {
 
         binding.recyclerViewPost.adapter = postRecyclerViewAdapter
         binding.recyclerViewPost.layoutManager = LinearLayoutManager(this)
-        binding.recyclerViewPost.addItemDecoration(DividerItemDecoration(this, LinearLayout.VERTICAL))
 
         postRecyclerViewAdapter.startListening()
 
         binding.fabPostList.setOnClickListener {
             startActivity(Intent(this, PostWriteActivity::class.java)
                     .putExtra("board", boardId))
+        }
+
+        binding.buttonPostSearch.setOnClickListener {
+            postRecyclerViewAdapter.stopListening()
+
+            val recyclerViewAdapter = PostRecyclerViewAdapter(options, binding.spinnerPostSearch.selectedItemPosition, binding.editTextPostSearch.text.toString())
+            binding.recyclerViewPost.adapter = recyclerViewAdapter
+            recyclerViewAdapter.startListening()
         }
     }
 
@@ -61,6 +69,9 @@ class PostListActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             android.R.id.home -> finish()
+            R.id.searchPost -> {
+                binding.layoutPostSearch.visibility = if(binding.layoutPostSearch.visibility == View.GONE) View.VISIBLE else View.GONE
+            }
             R.id.infoBoard -> {
                 AlertDialog.Builder(binding.root.context, android.R.style.Theme_DeviceDefault_Light_Dialog_Alert)
                         .setTitle(intent.getStringExtra("name"))

@@ -118,5 +118,12 @@
             android:textColor="@android:color/black"
             app:layout_constraintBaseline_toBaselineOf="@+id/textPostDate"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintBottom_toBottomOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

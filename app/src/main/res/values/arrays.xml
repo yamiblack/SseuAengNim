@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="search_filter">
+        <item>제목</item>
+        <item>내용</item>
+        <item>제목+내용</item>
+    </string-array>
+</resources>
