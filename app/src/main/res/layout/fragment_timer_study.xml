@@ -1,17 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.planner.PlannerFragment">
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_studyTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        android:fontFamily="@font/nanumsquarebold"
+        android:text="00:00:00:00"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/btn_startStduy"
+                android:layout_width="0dp"
+                android:fontFamily="@font/nanumsquareregular"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="시작" />
+
+            <Button
+                android:id="@+id/btn_resetStudy"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="@font/nanumsquareregular"
+                android:layout_weight="1"
+                android:text="초기화" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/btn_recordTime"
+                android:layout_width="0dp"
+                android:fontFamily="@font/nanumsquareregular"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="시간 기록하기" />
+
+            <Button
+                android:id="@+id/btn_goToHistory"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="@font/nanumsquareregular"
+                android:layout_weight="1"
+                android:text="기록 조회" />
+
+        </TableRow>
+    </TableLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="공부시간 타이머"
-        tools:ignore="MissingConstraints">
-    </TextView>
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="'초기화' 및 '시간 기록하기'는 일시정지 후에 가능합니다."
+        android:fontFamily="@font/nanumsquareregular"
+        android:textSize="15sp" />
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

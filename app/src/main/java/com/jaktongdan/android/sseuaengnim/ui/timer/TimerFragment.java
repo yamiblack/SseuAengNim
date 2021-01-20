@@ -21,6 +21,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 import com.jaktongdan.android.sseuaengnim.R;
 import com.jaktongdan.android.sseuaengnim.adapter.TimerPagerAdapter;
+import com.jaktongdan.android.sseuaengnim.ui.planner.PlannerViewModel;
 
 import java.util.Timer;
 
@@ -29,21 +30,15 @@ public class TimerFragment extends Fragment {
     private TabLayout tlTimer;
     private ViewPager vpTimer;
     private TimerPagerAdapter timerPagerAdapter;
-//    private FragmentActivity fragmentActivity;
-
-//    @Override
-//    public void onAttach(@NonNull Activity activity) {
-//        fragmentActivity = (FragmentActivity) activity;
-//        super.onAttach(activity);
-//    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
         View root = inflater.inflate(R.layout.activity_timer, container, false);
+
 
         tlTimer = root.findViewById(R.id.tl_timer);
         vpTimer = (ViewPager) root.findViewById(R.id.vp_timer);
-//        FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
 
         tlTimer.addTab(tlTimer.newTab().setText("공부시간 타이머"));
         tlTimer.addTab(tlTimer.newTab().setText("시험 타이머"));
