@@ -25,47 +25,12 @@ public class MainActivity extends AppCompatActivity {
 
     private long backKeyPressedTime = 0;
 
-//    private BottomNavigationView bottomNavigationView;
-//    private FragmentManager fragmentManager;
-//    private FragmentTransaction fragmentTransaction;
-//
-//    private PlannerFragment plannerFragment;
-//    private TimerFragment timerFragment;
-//    private CommunityFragment communityFragment;
-//    private MyPageFragment myPageFragment;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        bottomNavigationView = findViewById(R.id.nav_view);
-//
-//        plannerFragment = new PlannerFragment();
-//        timerFragment = new TimerFragment();
-//        communityFragment = new CommunityFragment();
-//        myPageFragment = new MyPageFragment();
-//
-//        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-//            @Override
-//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//                switch (item.getItemId()) {
-//                    case R.id.navigationPlanner:
-//                        setFragment(0);
-//                        break;
-//                    case R.id.navigationTimer:
-//                        setFragment(1);
-//                        break;
-//                    case R.id.navigationCommunity :
-//                        setFragment(2);
-//                        break;
-//                    case R.id.navigationMyPage :
-//                        setFragment(3);
-//                        break;
-//                }
-//                return true;
-//            }
-//        });
+
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -77,29 +42,6 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navView, navController);
 
     }
-
-//    private void setFragment(int n) {
-//        fragmentManager = getSupportFragmentManager();
-//        fragmentTransaction = fragmentManager.beginTransaction();
-//        switch (n) {
-//            case 0 :
-//                fragmentTransaction.replace(R.id.frame, plannerFragment);
-//                fragmentTransaction.commit();
-//                break;
-//            case 1 :
-//                fragmentTransaction.replace(R.id.frame, timerFragment);
-//                fragmentTransaction.commit();
-//                break;
-//            case 2 :
-//                fragmentTransaction.replace(R.id.frame, communityFragment);
-//                fragmentTransaction.commit();
-//                break;
-//            case 3 :
-//                fragmentTransaction.replace(R.id.frame, myPageFragment);
-//                fragmentTransaction.commit();
-//                break;
-//        }
-//    }
 
     @Override
     public void onBackPressed() {
