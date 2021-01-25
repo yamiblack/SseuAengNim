@@ -21,8 +21,8 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tl_timer"
-        tools:layout_editor_absoluteX="1dp"
-        tools:ignore="MissingClass">
+        tools:ignore="MissingClass"
+        tools:layout_editor_absoluteX="1dp">
 
     </androidx.viewpager.widget.ViewPager>
 
