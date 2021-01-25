@@ -15,10 +15,12 @@
         <activity android:name=".PostDetailActivity" />
         <activity android:name=".AddBoardActivity" />
         <activity android:name=".PostWriteActivity" />
+        <activity android:name=".AddPlanActivity" />
         <activity android:name=".PrivateSettingsActivity" />
         <activity android:name=".PostListActivity" />
         <activity android:name=".JoinActivity" />
         <activity android:name=".LoginActivity" />
+        <activity android:name=".TimerHistoryActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
