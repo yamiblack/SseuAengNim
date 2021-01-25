@@ -72,7 +72,6 @@ public class TimerHistoryActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
                         if (documentSnapshot.get("userId").toString().equals(auth.getCurrentUser().getUid().toString())) {
-                            TestTimerData testTimerData = documentSnapshot.toObject(TestTimerData.class);
                             StudyTimerData studyTimerData = documentSnapshot.toObject(StudyTimerData.class);
                             arrayList.add(studyTimerData);
                             Collections.sort(arrayList);
