@@ -57,7 +57,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/nanumsquarebold"
-        android:text="공부 시간 : 5시간 20분 38초"
+        android:text="기록된 공부 시간이 없습니다."
         android:textColor="#3972E4"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"

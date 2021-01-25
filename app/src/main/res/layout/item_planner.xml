@@ -15,19 +15,16 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-
         <CheckBox
             android:id="@+id/cb_planCheck"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:layout_marginStart="14dp" />
 
         <TextView
             android:id="@+id/tv_planDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:fontFamily="@font/nanumsquareregular"
             android:text="21.01.05"
             android:textColor="@android:color/holo_red_light"
@@ -40,7 +37,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
             android:fontFamily="@font/nanumsquareregular"
             android:text="수학 1단원 복습"
             android:textColor="@android:color/black"

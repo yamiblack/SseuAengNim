@@ -3,7 +3,6 @@ package com.jaktongdan.android.sseuaengnim.model;
 public class PlannerData {
 
     private String userId;
-    private String TodayDate;
     private String planTitle;
     private String planDate;
     private String reviewCycle;
@@ -15,14 +14,6 @@ public class PlannerData {
 
     public void setUserId(String userId) {
         this.userId = userId;
-    }
-
-    public String getTodayDate() {
-        return TodayDate;
-    }
-
-    public void setTodayDate(String todayDate) {
-        TodayDate = todayDate;
     }
 
     public String getPlanTitle() {

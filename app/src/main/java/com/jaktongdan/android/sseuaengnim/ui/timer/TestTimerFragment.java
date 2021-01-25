@@ -149,7 +149,6 @@ public class TestTimerFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-
                 if (etTimerTestName.getText().toString().length() == 0 || etTimerTestTime.getText().toString().length() == 0) {
                     Toast.makeText(getActivity(), "타이머명과 시간을 입력해주세요.", Toast.LENGTH_SHORT).show();
                 } else if (Integer.parseInt(etTimerTestTime.getText().toString()) == 0) {
