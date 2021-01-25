@@ -2,6 +2,7 @@ package com.jaktongdan.android.sseuaengnim.adapter
 
 import android.content.Intent
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -11,8 +12,9 @@ import com.jaktongdan.android.sseuaengnim.*
 import com.jaktongdan.android.sseuaengnim.databinding.ItemPostListBinding
 import com.jaktongdan.android.sseuaengnim.model.PostData
 
-class PostRecyclerViewAdapter(options: FirestoreRecyclerOptions<PostData>)
+class PostRecyclerViewAdapter(options: FirestoreRecyclerOptions<PostData>, val searchOption: Int = 0, val searchText: String? = null)
     : FirestoreRecyclerAdapter<PostData, PostRecyclerViewAdapter.ItemViewHolder>(options) {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val binding = ItemPostListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ItemViewHolder(binding)
@@ -20,12 +22,23 @@ class PostRecyclerViewAdapter(options: FirestoreRecyclerOptions<PostData>)
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int, model: PostData) {
         model.id = snapshots.getSnapshot(position).id
-        holder.bindData(model)
+        holder.bindData(model, position)
     }
 
     inner class ItemViewHolder(private val binding: ItemPostListBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bindData(post: PostData) {
+        fun bindData(post: PostData, position: Int) {
             binding.run {
+                searchText?.let { text ->
+                    if( when (searchOption) {
+                        0 -> !post.title.contains(text)
+                        1 -> !post.content.contains(text)
+                        else -> !post.title.contains(text) && !post.content.contains(text)
+                    }) {
+                        binding.root.removeAllViews()
+                        return
+                    }
+                }
+
                 textPostTitle.text = post.title
                 textPostContent.text = post.content
                 textPostDate.text = kTimeText(post.date)
@@ -33,8 +46,10 @@ class PostRecyclerViewAdapter(options: FirestoreRecyclerOptions<PostData>)
 
                 post.writer!!.get().addOnSuccessListener { member ->
                     textPostWriter.text = member.getString("nickname") ?: ""
-                    kStorage.child("profiles/${member.getString("photo")}").downloadUrl.addOnSuccessListener { uri ->
-                        Glide.with(root).load(uri).into(imagePostProfile)
+                    member.getString("photo")?.let { photo ->
+                        kStorage.child("profiles/$photo").downloadUrl.addOnSuccessListener { uri ->
+                            Glide.with(root).load(uri).into(imagePostProfile)
+                        }
                     }
                 }
 

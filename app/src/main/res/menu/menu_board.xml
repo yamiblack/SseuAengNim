@@ -2,6 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/searchPost"
+        android:title="검색"
+        android:icon="@drawable/ic_baseline_search_24"
+        app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/infoBoard"
         android:title="게시판 설명"
         android:icon="@drawable/ic_baseline_info_24"

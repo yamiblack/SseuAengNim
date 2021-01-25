@@ -41,8 +41,10 @@ class CommentRecyclerViewAdapter(options: FirestoreRecyclerOptions<CommentData>,
             binding.apply {
                 comment.writer!!.get().addOnSuccessListener {
                     textCommentNickname.text = it.getString("nickname")
-                    kStorage.child("profiles/${it.getString("photo")}").downloadUrl.addOnSuccessListener { uri ->
-                        Glide.with(binding.root).load(uri).into(binding.imageCommentProfile)
+                    it.getString("photo")?.let { photo ->
+                        kStorage.child("profiles/$photo").downloadUrl.addOnSuccessListener { uri ->
+                            Glide.with(binding.root).load(uri).into(binding.imageCommentProfile)
+                        }
                     }
                 }
 

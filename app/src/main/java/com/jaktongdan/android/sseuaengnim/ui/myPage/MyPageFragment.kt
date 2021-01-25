@@ -85,8 +85,6 @@ class MyPageFragment : Fragment() {
             }
         }.attach()
 
-        //binding.tabLayoutMyPage.tabTextColors = getColorStateList(requireContext(), android.R.color.black)
-
         binding.buttonMyPageSettings.setOnClickListener {
             startActivity(Intent(context, PrivateSettingsActivity::class.java))
         }

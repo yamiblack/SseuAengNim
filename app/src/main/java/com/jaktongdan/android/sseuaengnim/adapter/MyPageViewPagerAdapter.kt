@@ -65,7 +65,6 @@ class MyPageViewPagerAdapter: RecyclerView.Adapter<MyPageViewPagerAdapter.PagerV
                                     }
                         }
                     }
-                    addItemDecoration(DividerItemDecoration(root.context, LinearLayout.VERTICAL))
                     layoutManager = object : LinearLayoutManager(binding.root.context) {
                         override fun canScrollVertically(): Boolean {
                             return false
