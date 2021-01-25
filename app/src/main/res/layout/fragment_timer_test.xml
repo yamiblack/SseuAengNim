@@ -14,18 +14,37 @@
         android:layout_marginTop="50dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/nanumsquarebold"
-        android:text="00:00:00:00"
-        android:textSize="30sp"
+        android:text="00:00:00"
+        android:textSize="60sp"
         android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/btn_addTestTimer"
-        android:layout_width="match_parent"
+
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:fontFamily="@font/nanumsquareregular"
-        android:text="타이머 추가" />
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_testTimerPause"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/nanumsquareregular"
+            android:text="일시정지" />
+
+        <Button
+            android:id="@+id/btn_testTimerReset"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="30dp"
+            android:fontFamily="@font/nanumsquareregular"
+            android:text="초기화" />
+
+    </LinearLayout>
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -37,16 +56,16 @@
         android:textSize="15sp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_TestTimer"
+        android:id="@+id/rv_testTimer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="20dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginBottom="70dp"
         android:background="@android:color/transparent"
         android:divider="#ffffff"
         android:dividerHeight="7dp"
         android:scrollbars="vertical" />
-
 
 </LinearLayout>

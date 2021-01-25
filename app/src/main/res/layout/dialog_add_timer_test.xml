@@ -27,20 +27,20 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
-            android:hint="타이머명을 입력해주세요."
-            android:fontFamily="@font/nanumsquareregular" />
+            android:fontFamily="@font/nanumsquareregular"
+            android:hint="타이머명을 입력해주세요." />
 
         <EditText
             android:id="@+id/et_timerTestTime"
             android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="15dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/nanumsquareregular"
             android:hint="시간을 분단위로 입력해주세요."
-            android:inputType="number"
-            android:fontFamily="@font/nanumsquareregular" />
+            android:inputType="number" />
 
         <Button
             android:id="@+id/btn_addNewTimer"
