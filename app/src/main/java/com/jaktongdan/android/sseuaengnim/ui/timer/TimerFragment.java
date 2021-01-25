@@ -36,14 +36,14 @@ public class TimerFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.activity_timer, container, false);
 
-
         tlTimer = root.findViewById(R.id.tl_timer);
         vpTimer = (ViewPager) root.findViewById(R.id.vp_timer);
 
         tlTimer.addTab(tlTimer.newTab().setText("공부시간 타이머"));
         tlTimer.addTab(tlTimer.newTab().setText("시험 타이머"));
 
-        timerPagerAdapter = new TimerPagerAdapter(getFragmentManager(), tlTimer.getTabCount());
+
+        timerPagerAdapter = new TimerPagerAdapter(getChildFragmentManager(), tlTimer.getTabCount());
         vpTimer.setAdapter(timerPagerAdapter);
 
         vpTimer.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tlTimer));
@@ -51,7 +51,7 @@ public class TimerFragment extends Fragment {
         tlTimer.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-
+                vpTimer.setCurrentItem(tab.getPosition());
             }
 
             @Override
@@ -60,6 +60,7 @@ public class TimerFragment extends Fragment {
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
+                vpTimer.setCurrentItem(tab.getPosition());
             }
 
         });

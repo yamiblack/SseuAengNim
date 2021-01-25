@@ -76,9 +76,6 @@ public class TestTimerFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_timer_test, container, false);
         setHasOptionsMenu(true);
 
-//        tvTestTimeHour = (TextView) root.findViewById(R.id.tv_testTimeHour);
-//        tvTestTimeMin = (TextView) root.findViewById(R.id.tv_testTimeMin);
-//        tvTestTimeSec = (TextView) root.findViewById(R.id.tv_testTimeSec);
         tvTestTime = (TextView) root.findViewById(R.id.tv_testTime);
         btnTestTimerPause = (Button) root.findViewById(R.id.btn_testTimerPause);
         btnTestTimerReset = (Button) root.findViewById(R.id.btn_testTimerReset);
@@ -221,8 +218,8 @@ public class TestTimerFragment extends Fragment {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
                         if (documentSnapshot.get("userID").toString().equals(auth.getCurrentUser().getUid().toString())) {
-                            Log.e("writer : ", documentSnapshot.get("userID").toString());
-                            Log.e("current user : ", auth.getCurrentUser().toString());
+//                            Log.e("writer : ", documentSnapshot.get("userID").toString());
+//                            Log.e("current user : ", auth.getCurrentUser().toString());
                             TestTimerData testTimerData = documentSnapshot.toObject(TestTimerData.class);
                             arrayList.add(testTimerData);
                             Collections.sort(arrayList);

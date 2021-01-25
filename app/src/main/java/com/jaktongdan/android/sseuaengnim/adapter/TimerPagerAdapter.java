@@ -20,7 +20,6 @@ public class TimerPagerAdapter extends FragmentPagerAdapter {
         this.pageCount = pageCount;
     }
 
-
     @NonNull
     @Override
     public Fragment getItem(int position) {
@@ -42,4 +41,24 @@ public class TimerPagerAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return pageCount;
     }
+
+//
+//    List<Fragment> fragments = new ArrayList<>();
+//
+//    public TimerPagerAdapter (FragmentManager fragmentManager) {
+//        super(fragmentManager);
+//        fragments.add(new StudyTimerFragment());
+//        fragments.add(new TestTimerFragment());
+//    }
+//
+//    @NonNull
+//    @Override
+//    public Fragment getItem(int position) {
+//        return fragments.get(position);
+//    }
+//
+//    @Override
+//    public int getCount() {
+//        return fragments.size();
+//    }
 }
