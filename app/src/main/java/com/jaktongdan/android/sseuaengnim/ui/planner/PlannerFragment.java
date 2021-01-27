@@ -102,6 +102,7 @@ public class PlannerFragment extends Fragment {
 
         tvTodayDate.setText(calculateToday());
 
+        //초반 D-Day 설정
         dDay = sharedPreferences.getString("dDay", defaultDDay);
 
         try {
@@ -116,6 +117,7 @@ public class PlannerFragment extends Fragment {
             e.printStackTrace();
         }
 
+        //초반 할 일 list
         studyTimeList = new ArrayList<>();
         studyTimeAdapter = new StudyTimerRecyclerViewAdapter(getActivity(), studyTimeList);
 
@@ -124,7 +126,7 @@ public class PlannerFragment extends Fragment {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
-                        if (documentSnapshot.get("userId").toString().equals(auth.getCurrentUser().getUid().toString()) &&
+                        if (documentSnapshot.get("userId").toString().equals(auth.getCurrentUser().getUid()) &&
                                 documentSnapshot.get("todayDate").toString().equals(calculateToday())) {
                             StudyTimerData studyTimerData = documentSnapshot.toObject(StudyTimerData.class);
                             studyTimeList.add(studyTimerData);
@@ -133,7 +135,6 @@ public class PlannerFragment extends Fragment {
 
                     }
                     studyTimeAdapter.notifyDataSetChanged();
-
                 }
             }
         });

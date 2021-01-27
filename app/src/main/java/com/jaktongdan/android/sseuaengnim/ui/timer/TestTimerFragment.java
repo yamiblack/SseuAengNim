@@ -123,25 +123,35 @@ public class TestTimerFragment extends Fragment {
         btnTestTimerPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (isRunning) {
-                    leftTime = tvTestTime.getText().toString().substring(0, 2) + tvTestTime.getText().toString().substring(3, 5) + tvTestTime.getText().toString().substring(6, 8);
-                    Log.e("left Time", leftTime);
-                    timer.cancel();
-                    isRunning = false;
-                    btnTestTimerPause.setText("다시 시작");
+                if(tvTestTime.getText().toString().equals("00:00:00")) {
+                    Toast.makeText(getActivity(), "타이머를 시작해주세요.", Toast.LENGTH_SHORT).show();
                 } else {
-                    startTimer(leftTime);
-                    isRunning = true;
-                    btnTestTimerPause.setText("일시정지");
+                    if (isRunning) {
+                        leftTime = tvTestTime.getText().toString().substring(0, 2) + tvTestTime.getText().toString().substring(3, 5) + tvTestTime.getText().toString().substring(6, 8);
+                        Log.e("left Time", leftTime);
+                        timer.cancel();
+                        isRunning = false;
+                        btnTestTimerPause.setText("다시 시작");
+                    } else {
+                        startTimer(leftTime);
+                        isRunning = true;
+                        btnTestTimerPause.setText("일시정지");
+                    }
                 }
+
             }
         });
 
         btnTestTimerReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                timer.cancel();
-                tvTestTime.setText("00:00:00");
+                if(tvTestTime.getText().toString().equals("00:00:00")) {
+                    Toast.makeText(getActivity(), "타이머를 시작해주세요.", Toast.LENGTH_SHORT).show();
+                } else {
+                    timer.cancel();
+                    tvTestTime.setText("00:00:00");
+                }
+
             }
         });
 
