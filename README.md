@@ -20,19 +20,36 @@
 
 ## 상세 기능 소개
 ### 1. 플래너
- - 스크린샷 + 설명 + 보완 내용 소개
+<img src="https://user-images.githubusercontent.com/50551349/106243852-69aecf80-624d-11eb-9bf8-6dedeccebf8c.jpg" width="400">    <img src="https://user-images.githubusercontent.com/50551349/106243857-6a476600-624d-11eb-8057-3d53a9767213.jpg" width="400"> 
+ 
+ - 위 그림과 같이 계획을 추가하면 해당 일자 목록에 추가된다. 
+ 
+<img src="https://user-images.githubusercontent.com/50551349/106243862-6c112980-624d-11eb-8881-23abd9ea322d.jpg" width="400">    <img src="https://user-images.githubusercontent.com/50551349/106243860-6b789300-624d-11eb-993a-c3b9077e9685.jpg" width="400"> 
+ - 위 그림과 같이 D-day를 설정하면 'D-4'에서 'D-2'로 변경된다. 
+ 
 <br>
 
 ### 2. 타이머
+#### 2.1 공부시간 타이머
+
+ 
+
+
+#### 2.2  타이머
  - 
+ 
 <br>
 
 ### 3. 커뮤니티
  -  
+ 
 <br>
 
 ### 4. 기타 기능
- -  
+<img src="https://user-images.githubusercontent.com/50551349/106243813-500d8800-624d-11eb-9ac2-fad9fb56c24b.jpg" width="400">    <img src="https://user-images.githubusercontent.com/50551349/106243805-4c7a0100-624d-11eb-9347-7213accb7186.jpg" width="400"> 
+ 
+ - 위 그림과 같이 회원가입과 로그인을 통해 애플리케이션을 이용할 수 있다. 
+ 
 <br>
 
 ## Package 및 Class 소개
@@ -109,3 +126,11 @@
  - **Constants.kt** : 애플리케이션을 개발할 때 사용되는 상수와 함수에 대한 Kotlin 파일이다.
  - **MainActivity** : SplashActivity 뒤에 나타나는 메인 화면에 대한 Activity이다.
  - **SplashActivity** : 애플리케이션이 시작될 때 나타나는 Splash에 대한 Activity이다.
+ 
+ <br>
+ 
+## 추후 보완 내용
+ - 복습 주기 및 종료 일자 반영
+ - 목록에서의 수정 및 삭제 반영
+ - 기타 버그 수정
+ 
