@@ -6,7 +6,7 @@
  <br>
  
 ## 서비스 소개
- - 본 서비스는 시험을 준비하는 학생 혹은 수험생이 공부에 필요한 플래너, 타이머, 그리고 커뮤니티 서비스를 제공한다. 
+ - **본 서비스는 시험을 준비하는 학생 혹은 수험생이 공부에 필요한 플래너, 타이머, 그리고 커뮤니티 서비스를 제공한다.**
  <img src="https://user-images.githubusercontent.com/50551349/106233615-43336900-623a-11eb-8160-da4d9690ccb1.png"> 
  
  - '헤르만 에빙하우스의 망각곡선'와 같이 일정 기간 동안 복습을 하지 않으면 학습 내용을 잊게 되는 문제가 발생한다. 그리하여 학습자가 복습 주기를 설정하면 자동으로 이를 플래너에 추가해주는 등 해야될 공부 내용을 자동으로 플래너에 추가해준다. 
@@ -16,6 +16,7 @@
  - 자신이 필요한 정보를 바로바로 접할 수 있도록 자신이 원하는 주제의 게시판을 직접 만들 수 있으며, 게시글 작성도 가능하다. 
  
 <br>
+
 
 ## 상세 기능 소개
 ### 1. 플래너
@@ -29,19 +30,82 @@
 ### 3. 커뮤니티
  -  
 <br>
+
 ### 4. 기타 기능
  -  
 <br>
 
 ## Package 및 Class 소개
- - MVC Pattern 적용하면서 프로젝트를 진행했다. 
+ - **MVC Pattern** 적용하면서 프로젝트를 진행했다. 
 ### 1. adapter Package
- - 패키지 설명 + 클래스별 설명
+ - Data와 View를 연결하는 역할의 Adapter들을 분류한 Package이다.
+ - **BoardRecyclerViewAdapter** : Firestore에서 게시판 목록을 읽어와 표시해주는 Adapter이다.
+ - **CommentRecyclerViewAdapter** : Firestore에서 게시글의 댓글을 읽어와 표시해주는 Adapter이다.
+ - **MyCommentCommentRecyclerViewAdapter** : Firestore에서 내가 쓴 댓글을 게시글별로 분류하여 표시하는 Adapter이다.
+ - **MyCommentRecyclerViewAdapter** : Firestore에서 내가 댓글을 작성한 게시글을 표시하는 Adapter이다.
+ - **MyPageViewPagerAdapter** : 마이페이지의 내가 쓴 글/내가 쓴 댓글 뷰페이저를 구현하는 Adpater이다.
+ - **OnStudyTimerItemClickListener** : 공부 타미어와 관련된 내부의 Item을 터치하기 위한 Adapter에서 사용되는 Interface이다.
+ - **OnTestTimerItemClickListener** : 시험 타이머와 관련된 내부의 Item을 터치하기 위한 Adapter에서 사용되는 Interface이다.
+ - **PlannerRecyclerViewAdapter** : Firestore에서 플래너 목록을 읽어와 표시해주는 Adapter이다.
+ - **PostRecyclerViewAdapter** : Firestore에서 게시판별 게시글을 표시하는 Adapter이다.
+ - **StudyTimerRecyclerViewAdpater** : Firestore에서 공부 시간 목록을 읽어와 표시해주는 Adapter이다.
+ - **TestTimerRecyclerViewAdapter** : Firestore에서 시험 타이머 목록을 읽어와 표시해주는 Adapter이다.
+ - **TimerPagerApdater** : Timer내부의 뷰페이저를 구현하는 Adapter이다.
+ 
+<br> 
+ 
 ### 2. customView Package
- - 
+ - 사용자에게 수월하게 보여지기 위해서 사용되는 설정을 분류한 Package이다. 
+ - **AppGlide** : URL를 통한 ImageView 표시를 수월하게 사용하기 위한 Class이다.
+ - **stickyScrollview.kt** : ScrollView와 TabBar를 수월하게 연결해서 사용하기 위한 Class이다.
+  
+<br> 
+ 
 ### 3. model Package
- - 
+ - 각 기능에 맞게 Data들을 나타내기 위해 분류한 Package이다. 
+ - **BoardData** : 게시판에 대한 Data를 구성하는 Class이다.
+ - **CommentData** : 댓글에 대한 Data를 구성하는 Class이다.
+ - **PlannerData** : 플래너에 대한 Data를 구성하는 Class이다.
+ - **PostData** : 게시글에 대한 Data를 구성하는 Class이다.
+ - **StudyTimerData** : 공부 타이머에 대한 Data를 구성하는 Class이다.
+ - **TestTimerData** : 시험 타이머에 대한 Data를 구성하는 Class이다.
+  
+<br> 
+ 
 ### 4. ui Package
- - 
+#### 4.1 community Package
+ - 게시판에서 사용되는 화면들을 분류한 Package이다.
+ - **AddBoardActivity** : 게시판 추가에 대한 Activity이다.
+ - **CommunityFragment** : 커뮤니티에 대한 Fragment이다.
+ - **PostDetailActivity** : 게시글 세부 정보에 대한 Activity이다.
+ - **PostListActivity** : 게시글 목록에 대한 Activity이다.
+ - **PostWriteActivity** : 게시글 작성에 대한 Activity이다.
+  
+#### 4.2 membership Package
+ - 회원가입 및 로그인에서 사용되는 화면들을 분류한 Package이다.
+ - **JoinActivity** : 회원가입에 대한 Activity이다.
+ - **LoginActivity** : 로그인에 대한 Activity이다.
+  
+#### 4.3 myPage Package
+ - 마이페이지에서 사용되는 화면들을 분류한 Package이다.
+ - **MyPageFragment** : 마이페이지에 대한 Fragment이다.
+ - **PrivateSettingsActivity** : 마이페이지에서 개인 설정에 대한 Activity이다.
+ 
+#### 4.4 planner Package
+ - 플래너에서 사용되는 화면들을 분류한 Package이다.
+ - **AddPlanActivity** : 플래너에서 계획을 추가에 대한 Activity이다.
+ - **PlannerFragment** : 플래너에 대한 Fragment이다.
+ 
+#### 4.5 timer Package
+ - 타이머에서 사용되는 화면들을 분류한 Package이다.
+ - **StudyTimerFragment** : 공부 타이머에 대한 Fragment이다.
+ - **TestTimerFragment** : 시험 타이머에 대한 Fragment이다.
+ - **TimerFragment** : 타이머에 대한 Fragment이다.
+ - **TimerHistoryActivity** : 공부 시간의 기록에 대한 Activity이다.
+  
+<br> 
+ 
 ### 5. 그 외 Class
- - 
+ - **Constants.kt** : 애플리케이션을 개발할 때 사용되는 상수와 함수에 대한 Kotlin 파일이다.
+ - **MainActivity** : SplashActivity 뒤에 나타나는 메인 화면에 대한 Activity이다.
+ - **SplashActivity** : 애플리케이션이 시작될 때 나타나는 Splash에 대한 Activity이다.
