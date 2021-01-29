@@ -1,4 +1,4 @@
-package com.jaktongdan.android.sseuaengnim
+package com.jaktongdan.android.sseuaengnim.ui.myPage
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,7 +6,9 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceFragmentCompat
 import com.google.firebase.auth.ktx.userProfileChangeRequest
+import com.jaktongdan.android.sseuaengnim.*
 import com.jaktongdan.android.sseuaengnim.databinding.ActivityPrivateSettingsBinding
+import com.jaktongdan.android.sseuaengnim.ui.membership.LoginActivity
 
 class PrivateSettingsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPrivateSettingsBinding

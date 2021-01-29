@@ -2,7 +2,6 @@ package com.jaktongdan.android.sseuaengnim.adapter
 
 import android.content.Intent
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -11,6 +10,7 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.jaktongdan.android.sseuaengnim.*
 import com.jaktongdan.android.sseuaengnim.databinding.ItemPostListBinding
 import com.jaktongdan.android.sseuaengnim.model.PostData
+import com.jaktongdan.android.sseuaengnim.ui.community.PostDetailActivity
 
 class PostRecyclerViewAdapter(options: FirestoreRecyclerOptions<PostData>, val searchOption: Int = 0, val searchText: String? = null)
     : FirestoreRecyclerAdapter<PostData, PostRecyclerViewAdapter.ItemViewHolder>(options) {

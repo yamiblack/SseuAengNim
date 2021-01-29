@@ -2,15 +2,11 @@ package com.jaktongdan.android.sseuaengnim.ui.myPage
 
 import android.content.Intent
 import android.os.Bundle
-import android.provider.MediaStore
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.content.res.AppCompatResources.getColorStateList
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -24,7 +20,6 @@ import com.jaktongdan.android.sseuaengnim.databinding.FragmentMyPageBinding
 import java.util.*
 
 class MyPageFragment : Fragment() {
-    private lateinit var myPageViewModel: MyPageViewModel
     private lateinit var binding: FragmentMyPageBinding
 
     private val loadPhoto = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
@@ -48,7 +43,6 @@ class MyPageFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         binding = FragmentMyPageBinding.inflate(inflater)
-        myPageViewModel = ViewModelProvider(this).get(MyPageViewModel::class.java)
 
         loadProfile()
 

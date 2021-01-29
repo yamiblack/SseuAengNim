@@ -1,10 +1,14 @@
-package com.jaktongdan.android.sseuaengnim
+package com.jaktongdan.android.sseuaengnim.ui.community
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
+import com.jaktongdan.android.sseuaengnim.Firestore
+import com.jaktongdan.android.sseuaengnim.R
 import com.jaktongdan.android.sseuaengnim.databinding.ActivityPostWriteBinding
+import com.jaktongdan.android.sseuaengnim.kAuth
+import com.jaktongdan.android.sseuaengnim.kFirestore
 import java.util.*
 
 class PostWriteActivity : AppCompatActivity() {

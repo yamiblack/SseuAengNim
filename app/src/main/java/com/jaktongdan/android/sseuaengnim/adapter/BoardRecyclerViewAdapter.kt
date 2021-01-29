@@ -8,7 +8,7 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.Query
 import com.jaktongdan.android.sseuaengnim.Firestore
-import com.jaktongdan.android.sseuaengnim.PostListActivity
+import com.jaktongdan.android.sseuaengnim.ui.community.PostListActivity
 import com.jaktongdan.android.sseuaengnim.databinding.ItemCommunityBoardBinding
 import com.jaktongdan.android.sseuaengnim.kTimeText
 import com.jaktongdan.android.sseuaengnim.model.BoardData

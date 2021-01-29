@@ -1,4 +1,4 @@
-package com.jaktongdan.android.sseuaengnim;
+package com.jaktongdan.android.sseuaengnim.ui.timer;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
@@ -26,6 +26,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.jaktongdan.android.sseuaengnim.R;
 import com.jaktongdan.android.sseuaengnim.adapter.StudyTimerRecyclerViewAdapter;
 import com.jaktongdan.android.sseuaengnim.adapter.TestTimerRecyclerViewAdapter;
 import com.jaktongdan.android.sseuaengnim.model.StudyTimerData;

@@ -1,4 +1,4 @@
-package com.jaktongdan.android.sseuaengnim
+package com.jaktongdan.android.sseuaengnim.ui.community
 
 import android.app.AlertDialog
 import android.content.Intent
@@ -14,6 +14,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.jaktongdan.android.sseuaengnim.*
 import com.jaktongdan.android.sseuaengnim.adapter.CommentRecyclerViewAdapter
 import com.jaktongdan.android.sseuaengnim.databinding.ActivityPostDetailBinding
 import com.jaktongdan.android.sseuaengnim.model.CommentData

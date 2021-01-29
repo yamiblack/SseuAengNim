@@ -1,7 +1,6 @@
 package com.jaktongdan.android.sseuaengnim.adapter
 
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,6 +11,7 @@ import com.google.firebase.firestore.DocumentSnapshot
 import com.jaktongdan.android.sseuaengnim.*
 import com.jaktongdan.android.sseuaengnim.databinding.ItemMyCommentBinding
 import com.jaktongdan.android.sseuaengnim.model.PostData
+import com.jaktongdan.android.sseuaengnim.ui.community.PostDetailActivity
 
 class MyCommentRecyclerViewAdapter(data: HashMap<DocumentReference, ArrayList<DocumentSnapshot>>)
     : RecyclerView.Adapter<MyCommentRecyclerViewAdapter.ItemViewHolder>() {

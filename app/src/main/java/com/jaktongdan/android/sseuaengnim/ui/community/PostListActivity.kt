@@ -1,4 +1,4 @@
-package com.jaktongdan.android.sseuaengnim
+package com.jaktongdan.android.sseuaengnim.ui.community
 
 import android.app.AlertDialog
 import android.content.Intent
@@ -6,14 +6,15 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.LinearLayout
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.Query
+import com.jaktongdan.android.sseuaengnim.Firestore
+import com.jaktongdan.android.sseuaengnim.R
 import com.jaktongdan.android.sseuaengnim.adapter.PostRecyclerViewAdapter
 import com.jaktongdan.android.sseuaengnim.databinding.ActivityPostListBinding
+import com.jaktongdan.android.sseuaengnim.kFirestore
 import com.jaktongdan.android.sseuaengnim.model.PostData
 
 class PostListActivity : AppCompatActivity() {

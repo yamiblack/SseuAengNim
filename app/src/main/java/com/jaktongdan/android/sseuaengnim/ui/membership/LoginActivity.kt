@@ -1,4 +1,4 @@
-package com.jaktongdan.android.sseuaengnim
+package com.jaktongdan.android.sseuaengnim.ui.membership
 
 import android.content.Intent
 import android.graphics.Typeface
@@ -6,7 +6,11 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import com.jaktongdan.android.sseuaengnim.MainActivity
+import com.jaktongdan.android.sseuaengnim.Settings
 import com.jaktongdan.android.sseuaengnim.databinding.ActivityLoginBinding
+import com.jaktongdan.android.sseuaengnim.kAuth
+import com.jaktongdan.android.sseuaengnim.kPreference
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding

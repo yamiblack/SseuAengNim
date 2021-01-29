@@ -1,10 +1,13 @@
-package com.jaktongdan.android.sseuaengnim
+package com.jaktongdan.android.sseuaengnim.ui.community
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
+import com.jaktongdan.android.sseuaengnim.Firestore
 import com.jaktongdan.android.sseuaengnim.databinding.ActivityAddBoardBinding
+import com.jaktongdan.android.sseuaengnim.kAuth
+import com.jaktongdan.android.sseuaengnim.kFirestore
 import java.util.*
 
 class AddBoardActivity : AppCompatActivity() {

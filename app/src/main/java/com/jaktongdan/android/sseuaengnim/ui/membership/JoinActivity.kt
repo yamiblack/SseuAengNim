@@ -1,4 +1,4 @@
-package com.jaktongdan.android.sseuaengnim
+package com.jaktongdan.android.sseuaengnim.ui.membership
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.firebase.auth.ktx.userProfileChangeRequest
+import com.jaktongdan.android.sseuaengnim.*
 import com.jaktongdan.android.sseuaengnim.databinding.ActivityJoinBinding
 import java.util.regex.Pattern
 
