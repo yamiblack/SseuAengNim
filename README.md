@@ -20,35 +20,79 @@
 
 ## 상세 기능 소개
 ### 1. 플래너
-<img src="https://user-images.githubusercontent.com/50551349/106243852-69aecf80-624d-11eb-9bf8-6dedeccebf8c.jpg" width="400">    <img src="https://user-images.githubusercontent.com/50551349/106243857-6a476600-624d-11eb-8057-3d53a9767213.jpg" width="400"> 
- 
+<img src="https://user-images.githubusercontent.com/50551349/106243852-69aecf80-624d-11eb-9bf8-6dedeccebf8c.jpg" width="400">    <img src="https://user-images.githubusercontent.com/50551349/106243857-6a476600-624d-11eb-8057-3d53a9767213.jpg" width="400">  
+
  - 위 그림과 같이 계획을 추가하면 해당 일자 목록에 추가된다. 
+ <br>
+
  
 <img src="https://user-images.githubusercontent.com/50551349/106243862-6c112980-624d-11eb-8881-23abd9ea322d.jpg" width="400">    <img src="https://user-images.githubusercontent.com/50551349/106243860-6b789300-624d-11eb-993a-c3b9077e9685.jpg" width="400"> 
+
  - 위 그림과 같이 D-day를 설정하면 'D-4'에서 'D-2'로 변경된다. 
  
 <br>
 
 ### 2. 타이머
 #### 2.1 공부시간 타이머
+<img src="https://user-images.githubusercontent.com/50551349/106243901-7c290900-624d-11eb-9294-cb96a607f2fa.jpg" width="400">    <img src="https://user-images.githubusercontent.com/50551349/106243907-7e8b6300-624d-11eb-8e83-5336550f58fd.jpg" width="400"> 
+
+ - 위 그림과 같이 '시작' 버튼을 터치하면 공부시간을 측정하고 기록할 수 있다.
+ <br>
+
+
+<img src="https://user-images.githubusercontent.com/50551349/106243911-7fbc9000-624d-11eb-9b7d-185919ad42b0.jpg" width="400"> 
+
+ - 위 그림과 같이 기록된 공부시간을 확인할 수 있다. 
+ <br>
+
+
+#### 2.2 시험 타이머
+<img src="https://user-images.githubusercontent.com/50551349/106244010-a8448a00-624d-11eb-84ea-08c6c07ec87f.jpg" width="400">    <img src="https://user-images.githubusercontent.com/50551349/106244015-aa0e4d80-624d-11eb-98ef-7f136e79ebc1.jpg" width="400"> 
+
+ - 위 그림과 같이 시험에 대한 타이머를 추가할 수 있다. 
+ <br>
 
  
-
-
-#### 2.2  타이머
- - 
+ <img src="https://user-images.githubusercontent.com/50551349/106244019-aaa6e400-624d-11eb-9d6f-4353f8890584.jpg" width="400"> 
  
+ - 위 그림과 같이 추가된 목록에서 해당 타이머를 선택하면 시험 타이머가 작동한다. 
+ <br>
+
+ 
+ <img src="https://user-images.githubusercontent.com/50551349/106244023-abd81100-624d-11eb-8b2c-1abf4b8d7267.jpg" width="400"> 
+ 
+ - 위 그림과 원하는 수험생이 과목들을 추가할 수 있다. 
+
 <br>
 
 ### 3. 커뮤니티
- -  
+<img src="https://user-images.githubusercontent.com/50551349/106244047-b85c6980-624d-11eb-89b6-a929ce667f19.jpg" width="400">    <img src="https://user-images.githubusercontent.com/50551349/106244050-babec380-624d-11eb-969c-2fa555447ad8.jpg" width="400"> 
+ - 위 그림과 같이 게시판 목록을 확안하고 본인이 원하는 게시판을 추가할 수 있다. 
+ <br>
+
+
+<img src="https://user-images.githubusercontent.com/50551349/106244055-bb575a00-624d-11eb-89a3-d48f3b67fb15.jpg" width="400">    <img src="https://user-images.githubusercontent.com/50551349/106244059-bc888700-624d-11eb-9fc0-3b1ed571f9c0.jpg" width="400"> 
+ - 위 그림과 같이 게시판 내부의 게시글을 확인하고 게시글을 작성할 수 있다.
+ <br>
+
+ 
+<img src="https://user-images.githubusercontent.com/50551349/106244057-bbeff080-624d-11eb-99a8-16951d0fbd4c.jpg" width="400">  
+ - 위 그림과 같이 게시글의 세부 내용을 확인할 수 있다. 
  
 <br>
 
 ### 4. 기타 기능
+#### 4.1 회원가입 및 로그인
 <img src="https://user-images.githubusercontent.com/50551349/106243813-500d8800-624d-11eb-9ac2-fad9fb56c24b.jpg" width="400">    <img src="https://user-images.githubusercontent.com/50551349/106243805-4c7a0100-624d-11eb-9347-7213accb7186.jpg" width="400"> 
  
  - 위 그림과 같이 회원가입과 로그인을 통해 애플리케이션을 이용할 수 있다. 
+ <br>
+
+ 
+#### 4.2 마이페이지 
+<img src="https://user-images.githubusercontent.com/50551349/106244070-c14d3b00-624d-11eb-8823-ab43c1d51f34.jpg" width="400">    <img src="https://user-images.githubusercontent.com/50551349/106244075-c3af9500-624d-11eb-9e4c-f7e36b784036.jpg" width="400"> 
+
+ - 위 그림과 같이 마이페이지에서 본인이 작성한 글과 댓글을 포함한 다양한 정보를 확인하고 자동 로그인 및 닉네임을 변경할 수 있다.
  
 <br>
 
@@ -129,7 +173,7 @@
  
  <br>
  
-## 추후 보완 내용
+## 추후 보완 내용(예정)
  - 복습 주기 및 종료 일자 반영
  - 목록에서의 수정 및 삭제 반영
  - 기타 버그 수정
