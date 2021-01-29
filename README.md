@@ -67,16 +67,19 @@
 
 ### 3. 커뮤니티
 <img src="https://user-images.githubusercontent.com/50551349/106244047-b85c6980-624d-11eb-89b6-a929ce667f19.jpg" width="400">    <img src="https://user-images.githubusercontent.com/50551349/106244050-babec380-624d-11eb-969c-2fa555447ad8.jpg" width="400"> 
+
  - 위 그림과 같이 게시판 목록을 확안하고 본인이 원하는 게시판을 추가할 수 있다. 
  <br>
 
 
 <img src="https://user-images.githubusercontent.com/50551349/106244055-bb575a00-624d-11eb-89a3-d48f3b67fb15.jpg" width="400">    <img src="https://user-images.githubusercontent.com/50551349/106244059-bc888700-624d-11eb-9fc0-3b1ed571f9c0.jpg" width="400"> 
+
  - 위 그림과 같이 게시판 내부의 게시글을 확인하고 게시글을 작성할 수 있다.
  <br>
 
  
 <img src="https://user-images.githubusercontent.com/50551349/106244057-bbeff080-624d-11eb-99a8-16951d0fbd4c.jpg" width="400">  
+
  - 위 그림과 같이 게시글의 세부 내용을 확인할 수 있다. 
  
 <br>
