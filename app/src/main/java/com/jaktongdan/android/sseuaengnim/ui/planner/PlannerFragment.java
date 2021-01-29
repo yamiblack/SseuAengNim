@@ -96,65 +96,7 @@ public class PlannerFragment extends Fragment {
 
         tvTodayDate.setText(calculateToday());
 
-        //초반 D-Day 설정
-        dDay = sharedPreferences.getString("dDay", defaultDDay);
-
-        try {
-            if (calculateDDay(calculateToday(), dDay) < 0) {
-                tvDDay.setText(" ");
-            } else if (calculateDDay(calculateToday(), dDay) == 0) {
-                tvDDay.setText("(D-Day)");
-            } else {
-                tvDDay.setText("(D - " + String.valueOf(calculateDDay(calculateToday(), dDay)) + ")");
-            }
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        //초반 할 일 list
-        studyTimeList = new ArrayList<>();
-        studyTimeAdapter = new StudyTimerRecyclerViewAdapter(getActivity(), studyTimeList);
-
-        db.collection("TIMER_STUDY").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
-                        if (documentSnapshot.get("userId").toString().equals(auth.getCurrentUser().getUid()) &&
-                                documentSnapshot.get("todayDate").toString().equals(calculateToday())) {
-                            StudyTimerData studyTimerData = documentSnapshot.toObject(StudyTimerData.class);
-                            studyTimeList.add(studyTimerData);
-                            tvStudyTime.setText("공부 시간 : " + studyTimerData.getStudyTime());
-                        }
-
-                    }
-                    studyTimeAdapter.notifyDataSetChanged();
-                }
-            }
-        });
-
-        plannerList = new ArrayList<>();
-        layoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(layoutManager);
-        plannerAdapter = new PlannerRecyclerViewAdapter(getActivity(), plannerList);
-        recyclerView.setAdapter(plannerAdapter);
-
-        db.collection("PLANNER").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
-                        if (documentSnapshot.get("userId").toString().equals(auth.getCurrentUser().getUid().toString()) &&
-                                documentSnapshot.get("planDate").equals(calculateToday())) {
-                            PlannerData plannerData = documentSnapshot.toObject(PlannerData.class);
-                            plannerList.add(plannerData);
-                        }
-                    }
-                    plannerAdapter.notifyDataSetChanged();
-                }
-            }
-        });
-
+        setInitialScreen();
 
         cvPlannerCalendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -190,28 +132,34 @@ public class PlannerFragment extends Fragment {
                     e.printStackTrace();
                 }
 
+                studyTimeList = new ArrayList<>();
+                studyTimeAdapter = new StudyTimerRecyclerViewAdapter(getActivity(), studyTimeList);
+
                 db.collection("TIMER_STUDY").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
-                                if (documentSnapshot.get("userId").toString().equals(auth.getCurrentUser().getUid().toString()) &&
+                                if (documentSnapshot.get("userId").toString().equals(auth.getCurrentUser().getUid()) &&
                                         documentSnapshot.get("todayDate").toString().equals(date)) {
                                     StudyTimerData studyTimerData = documentSnapshot.toObject(StudyTimerData.class);
-                                    studyTimeList.add(studyTimerData);
                                     tvStudyTime.setText("공부 시간 : " + studyTimerData.getStudyTime());
+                                    studyTimeList.add(studyTimerData);
+                                    break;
                                 } else {
                                     tvStudyTime.setText("기록된 공부 시간이 없습니다.");
                                 }
-
                             }
                             studyTimeAdapter.notifyDataSetChanged();
-
                         }
                     }
                 });
 
                 plannerList = new ArrayList<>();
+                layoutManager = new LinearLayoutManager(getActivity());
+                recyclerView.setLayoutManager(layoutManager);
+                plannerAdapter = new PlannerRecyclerViewAdapter(getActivity(), plannerList);
+                recyclerView.setAdapter(plannerAdapter);
 
                 db.collection("PLANNER").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -222,6 +170,7 @@ public class PlannerFragment extends Fragment {
                                         documentSnapshot.get("planDate").equals(date)) {
                                     PlannerData plannerData = documentSnapshot.toObject(PlannerData.class);
                                     plannerList.add(plannerData);
+                                    break;
                                 } else {
                                     plannerList.clear();
                                 }
@@ -311,4 +260,64 @@ public class PlannerFragment extends Fragment {
         return todayDate;
     }
 
+    public void setInitialScreen() {
+        dDay = sharedPreferences.getString("dDay", defaultDDay);
+
+        try {
+            if (calculateDDay(calculateToday(), dDay) < 0) {
+                tvDDay.setText(" ");
+            } else if (calculateDDay(calculateToday(), dDay) == 0) {
+                tvDDay.setText("(D-Day)");
+            } else {
+                tvDDay.setText("(D - " + String.valueOf(calculateDDay(calculateToday(), dDay)) + ")");
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        studyTimeList = new ArrayList<>();
+        studyTimeAdapter = new StudyTimerRecyclerViewAdapter(getActivity(), studyTimeList);
+
+        db.collection("TIMER_STUDY").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+                        if (documentSnapshot.get("userId").toString().equals(auth.getCurrentUser().getUid()) &&
+                                documentSnapshot.get("todayDate").toString().equals(calculateToday())) {
+                            StudyTimerData studyTimerData = documentSnapshot.toObject(StudyTimerData.class);
+                            studyTimeList.add(studyTimerData);
+                            tvStudyTime.setText("공부 시간 : " + studyTimerData.getStudyTime());
+                        }
+
+                    }
+                    studyTimeAdapter.notifyDataSetChanged();
+                }
+            }
+        });
+
+        plannerList = new ArrayList<>();
+        layoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(layoutManager);
+        plannerAdapter = new PlannerRecyclerViewAdapter(getActivity(), plannerList);
+        recyclerView.setAdapter(plannerAdapter);
+
+        db.collection("PLANNER").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+                        if (documentSnapshot.get("userId").toString().equals(auth.getCurrentUser().getUid().toString()) &&
+                                documentSnapshot.get("planDate").equals(calculateToday())) {
+                            PlannerData plannerData = documentSnapshot.toObject(PlannerData.class);
+                            plannerList.add(plannerData);
+                        }
+                    }
+                    plannerAdapter.notifyDataSetChanged();
+                }
+            }
+        });
+
+
+    }
 }
