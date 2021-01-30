@@ -66,7 +66,7 @@
 <br>
 
 ### 3. 커뮤니티
-<img src="https://user-images.githubusercontent.com/50551349/106244047-b85c6980-624d-11eb-89b6-a929ce667f19.jpg" width="400">    <img src="https://user-images.githubusercontent.com/50551349/106244050-babec380-624d-11eb-969c-2fa555447ad8.jpg" width="400"> 
+<img src="https://user-images.githubusercontent.com/50551349/106345469-c95fb600-62f3-11eb-9a98-e1882b7b0ef1.jpg" width="400">    <img src="https://user-images.githubusercontent.com/50551349/106244050-babec380-624d-11eb-969c-2fa555447ad8.jpg" width="400"> 
 
  - 위 그림과 같이 게시판 목록을 확안하고 본인이 원하는 게시판을 추가할 수 있다. 
  <br>
