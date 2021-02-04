@@ -2,6 +2,8 @@
  - 프로젝트명 : 쓰앵님(공부 빼고 도와줄게, 넌 공부만 해)
  - 팀명 : 어드민(<a href="https://github.com/yamiblack">이주형</a>, <a href="https://github.com/jsb408">장수빈</a>)
  - 기간 : 2021.01.04 ~ 2021.01.25
+ - <a href="https://www.youtube.com/watch?v=Cf-8R0g6GQw">발표 </a> : 2020.01.30
+ - 최종 순위 : 3위 
  
  <br>
  
