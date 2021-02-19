@@ -5,6 +5,7 @@
  - 기간 : 2021.01.04 ~ 2021.01.25
  - <a href="https://www.youtube.com/watch?v=Cf-8R0g6GQw">발표 </a> : 2020.01.30
  - 최종 순위 : 3위 
+ <img src="https://user-images.githubusercontent.com/50551349/108466262-b45cbe00-72c6-11eb-8c70-76456ba901be.JPG" width="500">
  
  <br>
  
